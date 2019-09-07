@@ -1,0 +1,20 @@
+query sermonsQuery {
+  resources(first: 10) {
+    nodes {
+      id
+      name
+      snippet
+      content
+      audioUrl
+      youtubeUrl
+      topics {
+        id
+        name
+      }
+      scriptures {
+        id
+        name
+      }
+    }
+	}
+}

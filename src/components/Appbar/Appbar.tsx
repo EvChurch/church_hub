@@ -1,12 +1,14 @@
 import React, { ReactElement, Fragment, FC } from 'react';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
-import { Typography, Toolbar, AppBar } from '@material-ui/core';
+import { AppBar, Toolbar } from '@material-ui/core';
 
 const useStyles = makeStyles(() =>
   createStyles({
     appbar: {
-      marginTop: -45,
-      paddingTop: 45,
+      backgroundColor: '#fff',
+    },
+    logo: {
+      width: 45,
     },
   }),
 );
@@ -16,11 +18,9 @@ const Appbar: FC = (): ReactElement => {
 
   return (
     <Fragment>
-      <AppBar className={classes.appbar} position="static">
+      <AppBar className={classes.appbar} position="static" color="default">
         <Toolbar>
-          <Typography align="center" variant="h6" display="block">
-            Auckland Ev
-          </Typography>
+          <img className={classes.logo} src="/static/images/icon.png" />
         </Toolbar>
       </AppBar>
     </Fragment>

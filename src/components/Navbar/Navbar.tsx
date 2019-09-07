@@ -12,6 +12,7 @@ const useStyles = makeStyles(() =>
   createStyles({
     navigation: {
       height: 76,
+      borderTop: '1px #ccc solid',
     },
     label: {
       paddingTop: '2px',

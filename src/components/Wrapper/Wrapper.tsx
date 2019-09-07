@@ -9,7 +9,7 @@ const useStyles = makeStyles(() =>
   createStyles({
     box: {
       display: 'grid',
-      gridTemplateRows: '56px 1fr 76px',
+      gridTemplateRows: 'auto 1fr auto',
     },
     content: {
       overflowY: 'scroll',
