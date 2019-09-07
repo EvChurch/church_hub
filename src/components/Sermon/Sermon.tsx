@@ -8,6 +8,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import React, { FC } from 'react';
+import Link from 'next/link';
 
 const useStyles = makeStyles({
   card: {
@@ -22,7 +23,7 @@ const Sermon: FC<sermonsQueryResourcesNodes> = sermon => {
   const classes = useStyles();
 
   return (
-    <Card key={sermon.id} className={classes.card}>
+    <Card className={classes.card}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
@@ -39,9 +40,11 @@ const Sermon: FC<sermonsQueryResourcesNodes> = sermon => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          View
-        </Button>
+        <Link href="/sermons/[id]" as={`/sermons/${sermon.id}`} passHref>
+          <Button component="a" size="small" color="primary">
+            View
+          </Button>
+        </Link>
       </CardActions>
     </Card>
   );
