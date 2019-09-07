@@ -1,10 +1,10 @@
 import { storiesOf } from '@storybook/react';
-import React, { ReactElement } from 'react';
-import Sermons from './Sermons';
-import { sermonsQuery_resources_nodes as sermonsQueryResourcesNodes } from '../../containers/Sermons/types/sermonsQuery';
-import uuid from 'uuid/v4';
 import { ApolloError } from 'apollo-boost';
 import { GraphQLError } from 'graphql';
+import React, { ReactElement } from 'react';
+import uuid from 'uuid/v4';
+import { sermonsQuery_resources_nodes as sermonsQueryResourcesNodes } from '../../containers/Sermons/types/sermonsQuery';
+import Sermons from './Sermons';
 
 const sermon: sermonsQueryResourcesNodes = {
   __typename: 'Resource',

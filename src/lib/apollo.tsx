@@ -6,7 +6,7 @@ import * as fetch from 'isomorphic-unfetch';
 
 let apolloClient: ApolloClient<NormalizedCacheObject> | null = null;
 
-function createApolloClient(initialState = {}): ApolloClient<NormalizedCacheObject> {
+const createApolloClient = (initialState = {}): ApolloClient<NormalizedCacheObject> => {
   // Check out https://github.com/zeit/next.js/pull/4611 if you want to use the AWSAppSyncClient
   const isBrowser = typeof window !== 'undefined';
   return new ApolloClient({
@@ -20,9 +20,9 @@ function createApolloClient(initialState = {}): ApolloClient<NormalizedCacheObje
     }),
     cache: new InMemoryCache().restore(initialState),
   });
-}
+};
 
-function initApolloClient(initialState): ApolloClient<NormalizedCacheObject> {
+const initApolloClient = (initialState): ApolloClient<NormalizedCacheObject> => {
   // Make sure to create a new client for every server-side request so that data
   // isn't shared between connections (which would be bad)
   if (typeof window === 'undefined') {
@@ -35,9 +35,12 @@ function initApolloClient(initialState): ApolloClient<NormalizedCacheObject> {
   }
 
   return apolloClient;
-}
+};
 
-export function withApollo(PageComponent, { ssr = true } = {}) {
+const withApollo = (
+  PageComponent,
+  { ssr = true } = {},
+): (({ apolloClient, apolloState, ...pageProps }) => ReactElement) => {
   const WithApollo = ({ apolloClient, apolloState, ...pageProps }): ReactElement => {
     const client = useMemo(() => apolloClient || initApolloClient(apolloState), []);
     return (
@@ -106,4 +109,6 @@ export function withApollo(PageComponent, { ssr = true } = {}) {
   }
 
   return WithApollo;
-}
+};
+
+export default withApollo;

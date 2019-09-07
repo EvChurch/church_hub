@@ -1,12 +1,11 @@
-import React, { FC } from 'react';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
 import BookIcon from '@material-ui/icons/Book';
 import CalendarIcon from '@material-ui/icons/CalendarToday';
-import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
 import MapIcon from '@material-ui/icons/Map';
-import { makeStyles, createStyles } from '@material-ui/styles';
+import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
+import { createStyles, makeStyles } from '@material-ui/styles';
 import { useRouter } from 'next/router';
+import React, { FC, useState } from 'react';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -38,7 +37,8 @@ const Navbar: FC = () => {
   if (router.pathname.startsWith('/connect')) {
     initialValue = 3;
   }
-  const [value, setValue] = React.useState(initialValue);
+
+  const [value, setValue] = useState(initialValue);
   return (
     <BottomNavigation
       value={value}
@@ -63,15 +63,29 @@ const Navbar: FC = () => {
       showLabels
       className={classes.navigation}
     >
-      <BottomNavigationAction href="/sermons" classes={{ label: classes.label }} label="Sermons" icon={<BookIcon />} />
       <BottomNavigationAction
+        data-testid="sermons"
+        href="/sermons"
+        classes={{ label: classes.label }}
+        label="Sermons"
+        icon={<BookIcon />}
+      />
+      <BottomNavigationAction
+        data-testid="events"
         href="/events"
         classes={{ label: classes.label }}
         label="Events"
         icon={<CalendarIcon />}
       />
-      <BottomNavigationAction href="/discover" classes={{ label: classes.label }} label="Discover" icon={<MapIcon />} />
       <BottomNavigationAction
+        data-testid="discover"
+        href="/discover"
+        classes={{ label: classes.label }}
+        label="Discover"
+        icon={<MapIcon />}
+      />
+      <BottomNavigationAction
+        data-testid="connect"
         href="/connect"
         classes={{ label: classes.label }}
         label="Connect"

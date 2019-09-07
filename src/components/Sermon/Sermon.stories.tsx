@@ -1,8 +1,8 @@
 import { storiesOf } from '@storybook/react';
 import React, { ReactElement } from 'react';
-import Sermon from './Sermon';
-import { sermonsQuery_resources_nodes as sermonsQueryResourcesNodes } from '../../containers/Sermons/types/sermonsQuery';
 import uuid from 'uuid/v4';
+import { sermonsQuery_resources_nodes as sermonsQueryResourcesNodes } from '../../containers/Sermons/types/sermonsQuery';
+import Sermon from './Sermon';
 
 storiesOf('Sermon', module).add(
   'default',

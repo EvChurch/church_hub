@@ -1,15 +1,8 @@
-import {
-  Button,
-  CircularProgress,
-  Container,
-  Grid,
-  makeStyles,
-  TextField
-} from '@material-ui/core';
+import { Button, CircularProgress, Container, Grid, makeStyles, TextField } from '@material-ui/core';
 import { Formik, FormikActions } from 'formik';
 import React, { ReactElement } from 'react';
-import * as Yup from 'yup';
 import Geosuggest from 'react-geosuggest';
+import * as Yup from 'yup';
 
 export interface Values {
   firstName: string;
@@ -32,15 +25,15 @@ interface Props {
 const useStyles = makeStyles(theme => ({
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: theme.palette.secondary.main,
   },
   form: {
     width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1)
+    marginTop: theme.spacing(1),
   },
   submit: {
-    margin: theme.spacing(3, 0, 2)
-  }
+    margin: theme.spacing(3, 0, 2),
+  },
 }));
 
 const ConnectForm = ({ onSubmit, loading }: Props): ReactElement => {
@@ -58,7 +51,7 @@ const ConnectForm = ({ onSubmit, loading }: Props): ReactElement => {
         today: null,
         nextSteps: null,
         address: '',
-        about: 'home'
+        about: 'home',
       }}
       onSubmit={onSubmit}
       validationSchema={Yup.object().shape({
@@ -67,7 +60,7 @@ const ConnectForm = ({ onSubmit, loading }: Props): ReactElement => {
         phoneNumber: Yup.number().required('Required'),
         email: Yup.string()
           .email()
-          .required('Required')
+          .required('Required'),
       })}
     >
       {({ values, touched, errors, isValid, handleChange, handleBlur, handleSubmit }) => {
@@ -86,9 +79,7 @@ const ConnectForm = ({ onSubmit, loading }: Props): ReactElement => {
                     fullWidth
                     label="First Name"
                     autoFocus
-                    helperText={
-                      values.firstName && errors.firstName && touched.firstName && errors.firstName
-                    }
+                    helperText={values.firstName && errors.firstName && touched.firstName && errors.firstName}
                     error={(errors.firstName && touched.firstName) as boolean}
                   />
                 </Grid>
@@ -102,9 +93,7 @@ const ConnectForm = ({ onSubmit, loading }: Props): ReactElement => {
                     required
                     fullWidth
                     label="Last Name"
-                    helperText={
-                      values.lastName && errors.lastName && touched.lastName && errors.lastName
-                    }
+                    helperText={values.lastName && errors.lastName && touched.lastName && errors.lastName}
                     error={(errors.lastName && touched.lastName) as boolean}
                   />
                 </Grid>
@@ -134,12 +123,7 @@ const ConnectForm = ({ onSubmit, loading }: Props): ReactElement => {
                 fullWidth
                 label="Phone Number"
                 autoFocus
-                helperText={
-                  values.phoneNumber &&
-                  errors.phoneNumber &&
-                  touched.phoneNumber &&
-                  errors.phoneNumber
-                }
+                helperText={values.phoneNumber && errors.phoneNumber && touched.phoneNumber && errors.phoneNumber}
                 error={(errors.phoneNumber && touched.phoneNumber) as boolean}
               />
               <Geosuggest country="nz" />

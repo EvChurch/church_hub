@@ -1,10 +1,10 @@
+import { Box, Container, Grid } from '@material-ui/core';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { makeStyles } from '@material-ui/core/styles';
+import { ApolloError } from 'apollo-boost';
 import React, { FC } from 'react';
-import { Container, Grid, Box } from '@material-ui/core';
 import { sermonsQuery } from '../../containers/Sermons/types/sermonsQuery';
 import Sermon from '../Sermon';
-import { ApolloError } from 'apollo-boost';
-import { makeStyles } from '@material-ui/core/styles';
-import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles(theme => ({
   progress: {

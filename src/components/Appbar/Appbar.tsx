@@ -1,6 +1,6 @@
-import React, { ReactElement, Fragment, FC } from 'react';
-import { makeStyles, createStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar } from '@material-ui/core';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
+import React, { FC, Fragment, ReactElement } from 'react';
 
 const useStyles = makeStyles(() =>
   createStyles({

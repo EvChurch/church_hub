@@ -21,8 +21,14 @@
   },
   "[typescript]": {
     "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
   },
   "[typescriptreact]": {
     "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
   },
 }

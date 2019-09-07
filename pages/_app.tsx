@@ -1,10 +1,10 @@
-import React, { ReactElement, Fragment } from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider } from '@material-ui/styles';
 import App from 'next/app';
 import Head from 'next/head';
-import { ThemeProvider } from '@material-ui/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import theme from '../src/util/theme';
+import React, { Fragment, ReactElement } from 'react';
 import Wrapper from '../src/components/Wrapper';
+import theme from '../src/util/theme';
 
 class MyApp extends App {
   public componentDidMount(): void {

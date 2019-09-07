@@ -1,17 +1,17 @@
-import React, { FC } from 'react';
 import {
-  Container,
-  Button,
   Box,
-  Typography,
-  Grid,
+  Button,
   Card,
   CardActionArea,
-  CardMedia,
-  CardContent,
   CardActions,
+  CardContent,
+  CardMedia,
+  Container,
+  Grid,
+  Typography,
 } from '@material-ui/core';
-import { makeStyles, createStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
+import React, { FC } from 'react';
 
 const useStyles = makeStyles(() =>
   createStyles({
