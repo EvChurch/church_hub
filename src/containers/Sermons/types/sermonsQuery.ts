@@ -6,6 +6,12 @@
 // GraphQL query operation: sermonsQuery
 // ====================================================
 
+export interface sermonsQuery_resources_nodes_authors {
+  __typename: "Author";
+  id: string;
+  name: string;
+}
+
 export interface sermonsQuery_resources_nodes_topics {
   __typename: "Topic";
   id: string;
@@ -26,6 +32,8 @@ export interface sermonsQuery_resources_nodes {
   content: string | null;
   audioUrl: string | null;
   youtubeUrl: string | null;
+  bannerUrl: string | null;
+  authors: sermonsQuery_resources_nodes_authors[];
   topics: sermonsQuery_resources_nodes_topics[];
   scriptures: sermonsQuery_resources_nodes_scriptures[];
 }

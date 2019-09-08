@@ -14,9 +14,11 @@ const sermon: sermonsQueryResourcesNodes = {
     'We have this kind of high priest, who sat down at the right hand of the throne of the Majesty in the heavens, a minister of the sanctuary and the true tabernacle that was set up by the Lord and not man.',
   content: '',
   audioUrl: null,
+  bannerUrl: null,
   youtubeUrl: null,
-  topics: [],
+  authors: [],
   scriptures: [],
+  topics: [],
 };
 const graphQLErrors = [
   new GraphQLError('Something went wrong with GraphQL'),
