@@ -1,2 +1,2 @@
-import Sermon from './SermonCard';
-export default Sermon;
+import SermonCard from './SermonCard';
+export default SermonCard;

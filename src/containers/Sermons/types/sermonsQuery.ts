@@ -29,9 +29,6 @@ export interface sermonsQuery_resources_nodes {
   id: string;
   name: string;
   snippet: string | null;
-  content: string | null;
-  audioUrl: string | null;
-  youtubeUrl: string | null;
   bannerUrl: string | null;
   authors: sermonsQuery_resources_nodes_authors[];
   topics: sermonsQuery_resources_nodes_topics[];

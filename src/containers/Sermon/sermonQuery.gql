@@ -1,9 +1,12 @@
-query sermonsQuery {
-  resources(first: 10) {
+query sermonQuery($ids: [ID!]) {
+  resources(ids: $ids) {
     nodes {
       id
       name
       snippet
+      content
+      audioUrl
+      youtubeUrl
       bannerUrl
       authors {
         id
