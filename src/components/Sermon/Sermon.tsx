@@ -3,14 +3,10 @@ import BookmarkIcon from '@material-ui/icons/Bookmark';
 import FaceIcon from '@material-ui/icons/Face';
 import HeadsetIcon from '@material-ui/icons/Headset';
 import { Skeleton } from '@material-ui/lab';
-import { ApolloError } from 'apollo-boost';
 import clsx from 'clsx';
 import React, { FC, Fragment } from 'react';
 import Img from 'react-image';
-import {
-  sermonQuery,
-  sermonQuery_resources_nodes as sermonQueryResourcesNodes,
-} from '../../containers/Sermon/types/sermonQuery';
+import { sermonQuery_resources_nodes as sermonQueryResourcesNodes } from '../../containers/Sermon/types/sermonQuery';
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -31,23 +27,28 @@ const useStyles = makeStyles(theme => ({
   iconSmall: {
     fontSize: 20,
   },
+  ratio16by9: {
+    paddingTop: '56.25%',
+  },
 }));
 
 interface Props {
   loading?: boolean;
-  error?: ApolloError;
-  data?: sermonQuery;
+  sermon?: sermonQueryResourcesNodes;
   onListenClick?: (sermon: sermonQueryResourcesNodes) => void;
 }
 
-const Sermon: FC<Props> = ({ loading, error, data, onListenClick }) => {
+const Sermon: FC<Props> = ({ loading, sermon, onListenClick }) => {
   const classes = useStyles();
-  const sermon = data && data.resources && data.resources.nodes && data.resources.nodes[0];
 
   if (loading) {
-    return <Fragment>LOADING</Fragment>;
-  } else if (error) {
-    return <Container>{error.graphQLErrors.map(error => error.message)}</Container>;
+    return (
+      <div>
+        <Skeleton className={classes.ratio16by9} variant="rect" />
+        <Skeleton width="60%" />
+        <Skeleton height={12} width="40%" />
+      </div>
+    );
   } else if (sermon) {
     return (
       <Fragment>
@@ -96,7 +97,7 @@ const Sermon: FC<Props> = ({ loading, error, data, onListenClick }) => {
       </Fragment>
     );
   } else {
-    return <Fragment>NOT FOUND</Fragment>;
+    return <Fragment></Fragment>;
   }
 };
 

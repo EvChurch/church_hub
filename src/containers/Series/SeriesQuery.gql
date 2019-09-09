@@ -1,0 +1,20 @@
+query seriesQuery($ids: [ID!]) {
+  series(ids: $ids) {
+    nodes {
+      id
+      name
+      bannerUrl
+      resources {
+        nodes {
+          id
+          name
+          publishedAt
+          authors {
+            id
+            name
+          }
+        }
+      }
+    }
+	}
+}

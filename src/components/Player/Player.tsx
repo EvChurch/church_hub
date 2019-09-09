@@ -55,7 +55,7 @@ interface Props {
   data?: playerQuery;
 }
 
-const Player: FC<Props> = ({ loading, error, data }) => {
+const Player: FC<Props> = ({ data }) => {
   const classes = useStyles();
   const sermon = data && data.activeSermon;
   const [audio, state, controls] = useAudio({

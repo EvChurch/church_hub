@@ -7,25 +7,21 @@
 // ====================================================
 
 export interface sermonQuery_resources_nodes_authors {
-  __typename: "Author";
   id: string;
   name: string;
 }
 
 export interface sermonQuery_resources_nodes_topics {
-  __typename: "Topic";
   id: string;
   name: string;
 }
 
 export interface sermonQuery_resources_nodes_scriptures {
-  __typename: "Scripture";
   id: string;
   name: string;
 }
 
 export interface sermonQuery_resources_nodes {
-  __typename: "Resource";
   id: string;
   name: string;
   snippet: string | null;
@@ -39,7 +35,6 @@ export interface sermonQuery_resources_nodes {
 }
 
 export interface sermonQuery_resources {
-  __typename: "ResourceConnection";
   /**
    * A list of nodes.
    */

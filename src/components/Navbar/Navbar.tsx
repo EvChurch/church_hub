@@ -25,7 +25,7 @@ const Navbar: FC = () => {
   const classes = useStyles();
   const router = useRouter();
 
-  if (router.pathname.startsWith('/sermons')) {
+  if (router.pathname.startsWith('/series')) {
     initialValue = 0;
   }
   if (router.pathname.startsWith('/events')) {
@@ -46,7 +46,7 @@ const Navbar: FC = () => {
         setValue(newValue);
         switch (newValue) {
           case 0:
-            router.push('/sermons');
+            router.push('/series');
             break;
           case 1:
             router.push('/events');
@@ -65,7 +65,7 @@ const Navbar: FC = () => {
     >
       <BottomNavigationAction
         data-testid="sermons"
-        href="/sermons"
+        href="/series"
         classes={{ label: classes.label }}
         label="Sermons"
         icon={<BookIcon />}

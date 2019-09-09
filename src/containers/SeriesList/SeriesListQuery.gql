@@ -1,0 +1,9 @@
+query seriesListQuery {
+  series {
+    nodes {
+      id
+      name
+      bannerUrl
+    }
+	}
+}

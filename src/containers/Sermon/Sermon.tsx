@@ -1,4 +1,5 @@
 import { useApolloClient, useQuery } from '@apollo/react-hooks';
+import { get } from 'lodash/fp';
 import React, { FC } from 'react';
 import Sermon from '../../components/Sermon';
 import SermonQuery from './sermonQuery.gql';
@@ -10,15 +11,15 @@ interface Props {
 
 const SermonContainer: FC<Props> = ({ id }) => {
   const client = useApolloClient();
-  const { loading, error, data } = useQuery<sermonQuery>(SermonQuery, {
+  const { loading, data } = useQuery<sermonQuery>(SermonQuery, {
     variables: { ids: [id] },
   });
-
   const onListenClick = (sermon: sermonQueryResourcesNodes): void => {
     client.writeData({ data: { activeSermon: sermon } });
   };
+  const sermon = get('resources.nodes[0]', data);
 
-  return <Sermon onListenClick={onListenClick} loading={loading} error={error} data={data}></Sermon>;
+  return <Sermon onListenClick={onListenClick} loading={loading} sermon={sermon}></Sermon>;
 };
 
 export default SermonContainer;

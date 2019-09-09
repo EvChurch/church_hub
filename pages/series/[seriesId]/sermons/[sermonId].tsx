@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router';
 import React, { FC } from 'react';
-import Sermon from '../../src/containers/Sermon/Sermon';
+import SermonContainer from '../../../../src/containers/Sermon';
 
 const SermonPage: FC = () => {
   const router = useRouter();
 
-  return <Sermon id={router.query.id as string}></Sermon>;
+  return <SermonContainer id={router.query.sermonId as string}></SermonContainer>;
 };
 
 export default SermonPage;
