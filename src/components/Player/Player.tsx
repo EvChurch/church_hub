@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme =>
       alignItems: 'center',
     },
     slider: {
-      marginBottom: '-8px',
+      position: 'absolute',
       padding: 0,
     },
   }),
