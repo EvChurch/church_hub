@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { get } from 'lodash/fp';
 import React, { FC } from 'react';
 import Series from '../../components/Series';
-import SeriesQuery from './seriesQuery.gql';
+import SeriesQuery from './SeriesQuery.gql';
 import { seriesQuery } from './types/seriesQuery';
 
 interface Props {

@@ -1,2 +1,2 @@
-import Sermons from './Series';
-export default Sermons;
+import Series from './Series';
+export default Series;
