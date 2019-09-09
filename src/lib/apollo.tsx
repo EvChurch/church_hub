@@ -1,8 +1,9 @@
-import React, { useMemo, ReactElement } from 'react';
-import Head from 'next/head';
 import { ApolloProvider } from '@apollo/react-hooks';
-import { ApolloClient, InMemoryCache, HttpLink, NormalizedCacheObject } from 'apollo-boost';
+import { ApolloClient, HttpLink, InMemoryCache, NormalizedCacheObject } from 'apollo-boost';
 import * as fetch from 'isomorphic-unfetch';
+import Head from 'next/head';
+import React, { ReactElement, useMemo } from 'react';
+import { resolvers, typeDefs } from './apollo/state';
 
 let apolloClient: ApolloClient<NormalizedCacheObject> | null = null;
 
@@ -19,6 +20,8 @@ const createApolloClient = (initialState = {}): ApolloClient<NormalizedCacheObje
         : ((fetch as unknown) as (input: RequestInfo, init?: RequestInit | undefined) => Promise<Response>),
     }),
     cache: new InMemoryCache().restore(initialState),
+    resolvers,
+    typeDefs,
   });
 };
 

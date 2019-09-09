@@ -54,6 +54,7 @@
     "react-image": "^2.2.0",
     "react-scrolllock": "^4.0.1",
     "react-test-renderer": "^16.9.0",
+    "react-use": "^12.2.0",
     "uuid": "^3.3.3",
     "yup": "^0.27.0"
   },

@@ -7,7 +7,10 @@ import { ApolloError } from 'apollo-boost';
 import clsx from 'clsx';
 import React, { FC, Fragment } from 'react';
 import Img from 'react-image';
-import { sermonQuery } from '../../containers/Sermon/types/sermonQuery';
+import {
+  sermonQuery,
+  sermonQuery_resources_nodes as sermonQueryResourcesNodes,
+} from '../../containers/Sermon/types/sermonQuery';
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -34,9 +37,10 @@ interface Props {
   loading?: boolean;
   error?: ApolloError;
   data?: sermonQuery;
+  onListenClick?: (sermon: sermonQueryResourcesNodes) => void;
 }
 
-const Sermon: FC<Props> = ({ loading, error, data }) => {
+const Sermon: FC<Props> = ({ loading, error, data, onListenClick }) => {
   const classes = useStyles();
   const sermon = data && data.resources && data.resources.nodes && data.resources.nodes[0];
 
@@ -71,7 +75,14 @@ const Sermon: FC<Props> = ({ loading, error, data }) => {
           {sermon.topics.map(topic => (
             <Chip key={topic.id} size="small" label={topic.name} className={classes.chip} />
           ))}
-          <Button size="large" variant="contained" color="primary" className={classes.button} fullWidth={true}>
+          <Button
+            size="large"
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            fullWidth={true}
+            onClick={() => onListenClick && onListenClick(sermon)}
+          >
             <HeadsetIcon className={clsx(classes.leftIcon, classes.iconSmall)} />
             Listen
           </Button>

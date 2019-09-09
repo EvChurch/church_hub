@@ -1,15 +1,16 @@
-import React, { ReactElement, FC } from 'react';
-import Navbar from '../Navbar';
-import Appbar from '../Appbar';
-import { makeStyles, createStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
+import React, { FC, ReactElement } from 'react';
 import Div100vh from 'react-div-100vh';
 import ScrollLock, { TouchScrollable } from 'react-scrolllock';
+import Player from '../../containers/Player';
+import Appbar from '../Appbar';
+import Navbar from '../Navbar';
 
 const useStyles = makeStyles(() =>
   createStyles({
     box: {
       display: 'grid',
-      gridTemplateRows: 'auto 1fr auto',
+      gridTemplateRows: 'auto 1fr auto auto',
     },
     content: {
       overflowY: 'scroll',
@@ -32,6 +33,7 @@ const Wrapper: FC<Props> = ({ children }: Props) => {
       <TouchScrollable>
         <div className={classes.content}>{children}</div>
       </TouchScrollable>
+      <Player />
       <Navbar />
     </Div100vh>
   );

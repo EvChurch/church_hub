@@ -4,6 +4,7 @@ import App from 'next/app';
 import Head from 'next/head';
 import React, { Fragment, ReactElement } from 'react';
 import Wrapper from '../src/components/Wrapper';
+import withApollo from '../src/lib/apollo';
 import theme from '../src/util/theme';
 
 class MyApp extends App {
@@ -34,4 +35,4 @@ class MyApp extends App {
   }
 }
 
-export default MyApp;
+export default withApollo(MyApp);
