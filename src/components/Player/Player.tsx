@@ -17,12 +17,21 @@ const useStyles = makeStyles(theme =>
     container: {
       display: 'grid',
       gridTemplateColumns: 'auto 1fr auto',
-      borderTop: '1px #ccc solid',
+      width: '100%',
     },
     image: {
       height: '57px',
     },
     content: {
+      height: '57px',
+      marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(1),
+      display: 'flex',
+      justifyContent: 'center',
+      overflow: 'hidden',
+      flexDirection: 'column',
+    },
+    controls: {
       height: '57px',
       marginLeft: theme.spacing(1),
       display: 'flex',
@@ -31,6 +40,11 @@ const useStyles = makeStyles(theme =>
     slider: {
       position: 'absolute',
       padding: 0,
+    },
+    wrapText: {
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
     },
   }),
 );
@@ -66,13 +80,12 @@ const Player: FC<Props> = ({ loading, error, data }) => {
             loader={<Skeleton variant="rect"></Skeleton>}
           />
           <div className={classes.content}>
-            <div>
+            <div className={classes.wrapText}>
               <strong>{sermon.name}</strong>
-              <br />
-              <span>{sermon.authors[0].name}</span>
             </div>
+            <div className={classes.wrapText}>{sermon.authors[0].name}</div>
           </div>
-          <div className={classes.content}>
+          <div className={classes.controls}>
             <IconButton className={classes.button} onClick={() => controls.seek(state.time - 10)}>
               <ReplayIcon />
             </IconButton>
