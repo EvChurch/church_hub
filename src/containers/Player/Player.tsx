@@ -6,7 +6,7 @@ import { playerQuery } from './types/playerQuery';
 
 const PlayerContainer: FC = () => {
   const { loading, error, data } = useQuery<playerQuery>(PlayerQuery);
-
+  console.log(data);
   return <Player loading={loading} error={error} data={data}></Player>;
 };
 

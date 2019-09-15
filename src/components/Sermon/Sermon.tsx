@@ -64,12 +64,12 @@ const Sermon: FC<Props> = ({ loading, sermon, onListenClick }) => {
           {sermon.authors.map(author => (
             <Chip key={author.id} size="small" icon={<FaceIcon />} label={author.name} className={classes.chip} />
           ))}
-          {sermon.scriptures.map(scripture => (
+          {sermon.connectionScriptures.map(connectionScripture => (
             <Chip
-              key={scripture.id}
+              key={connectionScripture.id}
               size="small"
               icon={<BookmarkIcon />}
-              label={scripture.name}
+              label={`${connectionScripture.scripture.name} ${connectionScripture.range}`}
               className={classes.chip}
             />
           ))}
@@ -93,6 +93,9 @@ const Sermon: FC<Props> = ({ loading, sermon, onListenClick }) => {
           <Typography variant="body2" color="textSecondary" component="p">
             {sermon.content}
           </Typography>
+          {sermon.connectionScriptures.map(connectionScripture => (
+            <div key={connectionScripture.id} dangerouslySetInnerHTML={{ __html: connectionScripture.content }}></div>
+          ))}
         </Container>
       </Fragment>
     );

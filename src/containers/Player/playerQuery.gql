@@ -2,20 +2,9 @@ query playerQuery {
   activeSermon @client {
     id
     name
-    snippet
-    content
     audioUrl
-    youtubeUrl
     bannerUrl
     authors {
-      id
-      name
-    }
-    topics {
-      id
-      name
-    }
-    scriptures {
       id
       name
     }

@@ -5,6 +5,7 @@ import Head from 'next/head';
 import React, { Fragment, ReactElement } from 'react';
 import Wrapper from '../src/components/Wrapper';
 import withApollo from '../src/lib/apollo';
+import '../src/styles/index.scss';
 import theme from '../src/util/theme';
 
 class MyApp extends App {

@@ -16,9 +16,16 @@ export interface sermonQuery_resources_nodes_topics {
   name: string;
 }
 
-export interface sermonQuery_resources_nodes_scriptures {
+export interface sermonQuery_resources_nodes_connectionScriptures_scripture {
   id: string;
   name: string;
+}
+
+export interface sermonQuery_resources_nodes_connectionScriptures {
+  id: string;
+  range: string | null;
+  content: string;
+  scripture: sermonQuery_resources_nodes_connectionScriptures_scripture;
 }
 
 export interface sermonQuery_resources_nodes {
@@ -31,7 +38,7 @@ export interface sermonQuery_resources_nodes {
   bannerUrl: string | null;
   authors: sermonQuery_resources_nodes_authors[];
   topics: sermonQuery_resources_nodes_topics[];
-  scriptures: sermonQuery_resources_nodes_scriptures[];
+  connectionScriptures: sermonQuery_resources_nodes_connectionScriptures[];
 }
 
 export interface sermonQuery_resources {

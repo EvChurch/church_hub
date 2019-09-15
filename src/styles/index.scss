@@ -1,0 +1,54 @@
+.passage-content {
+  margin: 20px -15px 0;
+  padding: 50px 100px;
+  background: #f1f1f1;
+  text-align: left;
+  .passage-display {
+    margin: 0 0 20px;
+    font-size: 1.55rem;
+    .passage-display-bcv {
+      margin: 0;
+    }
+    .passage-display-version {
+      font-size: 1rem;
+      font-weight: 400;
+    }
+  }
+  h3 {
+    font-size: 1.3rem;
+  }
+  span.chapternum {
+    font-size: 20px;
+    font-weight: 700;
+    position: relative;
+    line-height: .8em;
+    left: 0;
+    text-indent: 0;
+  }
+  sup.versenum {
+    font-weight: 700;
+    font-size: 12px;
+    font-size: 12px;
+  }
+  sup.footnote {
+    display: none;
+  }
+  .crossrefs, .footnotes  {
+    display: none;
+  }
+  ol {
+    padding-left: 20px;
+    list-style-type: lower-alpha;
+  }
+  .publisher-info-bottom {
+    border-top: 1px solid #deddd9;
+    padding-top: 1em;
+    position: relative;
+    strong {
+      display: none;
+    }
+  }
+  @media(max-width: 576px) {
+    padding: 35px 25px;
+  }
+}

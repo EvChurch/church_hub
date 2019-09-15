@@ -3,7 +3,7 @@
   "name": "Auckland Ev",
   "icons": [
     {
-      "src": "static/images/icon.png",
+      "src": "/static/images/icon.png",
       "sizes": "192x192",
       "type": "image/png"
     }

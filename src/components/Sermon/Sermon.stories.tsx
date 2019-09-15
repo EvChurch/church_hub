@@ -13,7 +13,7 @@ const sermon = {
   youtubeUrl: null,
   bannerUrl: null,
   authors: [],
-  scriptures: [],
+  connectionScriptures: [],
   topics: [],
 };
 

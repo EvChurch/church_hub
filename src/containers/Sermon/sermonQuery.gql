@@ -16,9 +16,14 @@ query sermonQuery($ids: [ID!]) {
         id
         name
       }
-      scriptures {
+      connectionScriptures {
         id
-        name
+        range
+        content
+        scripture {
+          id
+          name
+        }
       }
     }
 	}

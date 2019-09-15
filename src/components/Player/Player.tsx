@@ -107,7 +107,7 @@ const Player: FC<Props> = ({ data }) => {
       </div>
     );
   } else {
-    return <Fragment></Fragment>;
+    return <Fragment>{audio}</Fragment>;
   }
 };
 
