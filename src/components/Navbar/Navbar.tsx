@@ -31,7 +31,7 @@ const Navbar: FC = () => {
   if (router.pathname.startsWith('/events')) {
     initialValue = 1;
   }
-  if (router.pathname.startsWith('/discover')) {
+  if (router.pathname.startsWith('/steps')) {
     initialValue = 2;
   }
   if (router.pathname.startsWith('/connect')) {
@@ -52,7 +52,7 @@ const Navbar: FC = () => {
             router.push('/events');
             break;
           case 2:
-            router.push('/discover');
+            router.push('/steps');
             break;
           case 3:
             router.push('/connect');
@@ -78,8 +78,8 @@ const Navbar: FC = () => {
         icon={<CalendarIcon />}
       />
       <BottomNavigationAction
-        data-testid="discover"
-        href="/discover"
+        data-testid="steps"
+        href="/steps"
         classes={{ label: classes.label }}
         label="Discover"
         icon={<MapIcon />}

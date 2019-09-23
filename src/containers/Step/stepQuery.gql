@@ -1,0 +1,22 @@
+query stepQuery($ids: [ID!]) {
+  steps(ids: $ids) {
+    nodes {
+      id
+      name
+      snippet
+      content
+      bannerUrl
+      locationConnectionSteps {
+        nodes {
+          id
+          elvantoFormId
+          content
+          location {
+            id
+            name
+          }
+        }
+      }
+    }
+	}
+}

@@ -1,0 +1,10 @@
+query stepListQuery {
+  steps {
+    nodes {
+      id
+      name
+      snippet
+      bannerUrl
+    }
+	}
+}

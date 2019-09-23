@@ -28,7 +28,7 @@ describe('Navbar', (): void => {
   it('should have four links', (): void => {
     expect(wrapper.getByTestId('sermons').getAttribute('href')).toEqual('/sermons');
     expect(wrapper.getByTestId('events').getAttribute('href')).toEqual('/events');
-    expect(wrapper.getByTestId('discover').getAttribute('href')).toEqual('/discover');
+    expect(wrapper.getByTestId('steps').getAttribute('href')).toEqual('/steps');
     expect(wrapper.getByTestId('connect').getAttribute('href')).toEqual('/connect');
   });
 });

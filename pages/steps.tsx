@@ -1,14 +1,14 @@
 import Head from 'next/head';
 import React, { FC, Fragment } from 'react';
-import NextSteps from '../src/components/Discover';
+import StepList from '../src/containers/StepList';
 
-const DiscoverPage: FC = () => (
+const StepsPage: FC = () => (
   <Fragment>
     <Head>
       <title>Discover | Auckland Ev</title>
     </Head>
-    <NextSteps />
+    <StepList />
   </Fragment>
 );
 
-export default DiscoverPage;
+export default StepsPage;
