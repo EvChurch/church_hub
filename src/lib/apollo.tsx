@@ -14,7 +14,7 @@ const createApolloClient = (initialState = {}): ApolloClient<NormalizedCacheObje
     connectToDevTools: isBrowser,
     ssrMode: !isBrowser, // Disables forceFetch on the server (so queries are only run once)
     link: new HttpLink({
-      uri: 'http://localhost:5000/graphql',
+      uri: 'https://resources.aucklandev.co.nz/graphql',
       fetch: isBrowser
         ? undefined
         : ((fetch as unknown) as (input: RequestInfo, init?: RequestInit | undefined) => Promise<Response>),

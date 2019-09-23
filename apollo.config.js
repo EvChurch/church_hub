@@ -2,7 +2,7 @@ module.exports = {
   client: {
     service: {
       name: 'church-resources',
-      url: 'http://localhost:5000/graphql',
+      url: 'https://resources.aucklandev.co.nz/graphql',
     },
     target: 'typescript',
   },
