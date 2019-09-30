@@ -8,6 +8,9 @@ const useStyles = makeStyles(theme => ({
   image: {
     width: '100%',
   },
+  ratio16by9: {
+    paddingTop: '56.25%',
+  },
   container: {
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2),
@@ -18,7 +21,11 @@ const Connect: FC = () => {
 
   return (
     <Fragment>
-      <Img className={classes.image} src="/static/images/connect.jpg" loader={<Skeleton variant="rect"></Skeleton>} />
+      <Img
+        className={classes.image}
+        src="/static/images/connect.jpg"
+        loader={<Skeleton className={classes.ratio16by9} variant="rect" />}
+      />
       <Container className={classes.container}>
         <Typography variant="h5" component="h2">
           We want to connect with You!
