@@ -2,8 +2,8 @@ import { Container, makeStyles, Typography } from '@material-ui/core';
 import { Skeleton } from '@material-ui/lab';
 import React, { FC, Fragment } from 'react';
 import Img from 'react-image';
-import { stepQuery_steps_nodes as stepQueryStepsNodes } from '../../containers/Step/types/stepQuery';
-import ElvantoForm from '../ElvantoForm';
+import { prayerQuery_prayers_nodes as prayerQueryPrayersNodes } from '../../containers/Prayer/types/prayerQuery';
+import EchoAd from '../EchoAd';
 
 const useStyles = makeStyles(theme => ({
   image: {
@@ -17,10 +17,10 @@ const useStyles = makeStyles(theme => ({
 
 interface Props {
   loading?: boolean;
-  step?: stepQueryStepsNodes;
+  prayer?: prayerQueryPrayersNodes;
 }
 
-const Step: FC<Props> = ({ loading, step }) => {
+const Prayer: FC<Props> = ({ loading, prayer }) => {
   const classes = useStyles();
 
   if (loading) {
@@ -31,30 +31,26 @@ const Step: FC<Props> = ({ loading, step }) => {
         <Skeleton height={12} width="40%" />
       </div>
     );
-  } else if (step) {
+  } else if (prayer) {
     return (
       <Fragment>
         <Img
           className={classes.image}
-          src={step.bannerUrl || undefined}
+          src={prayer.bannerUrl || undefined}
           loader={<Skeleton variant="rect"></Skeleton>}
         />
         <Container>
           <Typography gutterBottom variant="h5" component="h2">
-            {step.name}
+            {prayer.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {step.snippet}
+            {prayer.snippet}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="div">
-            {step.content && <div dangerouslySetInnerHTML={{ __html: step.content }} />}
+            {prayer.content && <div dangerouslySetInnerHTML={{ __html: prayer.content }} />}
           </Typography>
+          <EchoAd />
         </Container>
-        {step.locationConnectionSteps.nodes &&
-          step.locationConnectionSteps.nodes.map(
-            connectionStep =>
-              connectionStep && <ElvantoForm id={connectionStep.elvantoFormId} content={connectionStep.content} />,
-          )}
       </Fragment>
     );
   } else {
@@ -62,4 +58,4 @@ const Step: FC<Props> = ({ loading, step }) => {
   }
 };
 
-export default Step;
+export default Prayer;

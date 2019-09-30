@@ -12,12 +12,14 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const loadElvantoFormScript = (uniqId, id): void => {
-  const existingScript = document.getElementById(uniqId);
-  if (!existingScript) {
-    const script = document.createElement('script');
-    script.src = `https://aev.elvanto.com.au/form/${id}.js?el_id=${uniqId}`;
-    script.id = uniqId;
-    document.body.appendChild(script);
+  if (typeof window !== 'undefined') {
+    const existingScript = document.getElementById(uniqId);
+    if (!existingScript) {
+      const script = document.createElement('script');
+      script.src = `https://aev.elvanto.com.au/form/${id}.js?el_id=${uniqId}`;
+      script.id = uniqId;
+      document.body.appendChild(script);
+    }
   }
 };
 

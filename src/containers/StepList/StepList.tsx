@@ -7,7 +7,6 @@ import { stepListQuery } from './types/stepListQuery';
 
 const StepListContainer: FC = () => {
   const { loading, data } = useQuery<stepListQuery>(StepListQuery);
-
   if (loading) {
     return <StepList loading={loading}></StepList>;
   } else {

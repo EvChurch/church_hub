@@ -3,7 +3,7 @@ import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { Skeleton } from '@material-ui/lab';
 import Link from 'next/link';
 import React, { FC, Fragment } from 'react';
-import { stepListQuery_steps_nodes as stepListQueryStepsNodes } from '../../../containers/StepList/types/stepListQuery';
+import { prayerListQuery_prayers_nodes as prayerListQueryPrayersNodes } from '../../../containers/PrayerList/types/prayerListQuery';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -19,10 +19,10 @@ const useStyles = makeStyles(theme =>
 
 interface Props {
   loading?: boolean;
-  step?: stepListQueryStepsNodes;
+  prayer?: prayerListQueryPrayersNodes;
 }
 
-const Item: FC<Props> = ({ loading, step }) => {
+const Item: FC<Props> = ({ loading, prayer }) => {
   const classes = useStyles();
 
   if (loading) {
@@ -35,24 +35,24 @@ const Item: FC<Props> = ({ loading, step }) => {
         </CardContent>
       </Card>
     );
-  } else if (step) {
+  } else if (prayer) {
     return (
-      <Link href="/steps/[stepId]" as={`/steps/${step.id}`} passHref>
+      <Link href="/prayers/[prayerId]" as={`/prayers/${prayer.id}`} passHref>
         <Card className={classes.card}>
           <CardActionArea>
-            <CardMedia className={classes.ratio16by9} image={step.bannerUrl || undefined} />
+            <CardMedia className={classes.ratio16by9} image={prayer.bannerUrl || undefined} />
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
-                {step.name}
+                {prayer.name}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                {step.snippet}
+                {prayer.snippet}
               </Typography>
             </CardContent>
           </CardActionArea>
           <CardActions>
             <Button size="small" color="primary">
-              More Info
+              Pray Now
             </Button>
           </CardActions>
         </Card>

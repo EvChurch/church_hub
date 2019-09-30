@@ -1,2 +1,2 @@
-import SeriesList from './StepList';
-export default SeriesList;
+import StepList from './StepList';
+export default StepList;

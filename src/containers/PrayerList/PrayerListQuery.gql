@@ -1,0 +1,10 @@
+query prayerListQuery {
+  prayers {
+    nodes {
+      id
+      name
+      snippet
+      bannerUrl
+    }
+	}
+}

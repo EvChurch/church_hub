@@ -1,8 +1,11 @@
 import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
-import BookIcon from '@material-ui/icons/Book';
-import CalendarIcon from '@material-ui/icons/CalendarToday';
-import MapIcon from '@material-ui/icons/Map';
-import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
+import {
+  CalendarToday as EventsIcon,
+  Map as DiscoverIcon,
+  Security as PrayerIcon,
+  SupervisedUserCircle as ConnectIcon,
+  Whatshot as SermonIcon,
+} from '@material-ui/icons';
 import { createStyles, makeStyles } from '@material-ui/styles';
 import { useRouter } from 'next/router';
 import React, { FC, useState } from 'react';
@@ -17,8 +20,19 @@ const useStyles = makeStyles(() =>
       paddingTop: '2px',
       fontSize: '0.75rem !important',
     },
+    root: {
+      minWidth: 0,
+    },
   }),
 );
+
+enum RouterState {
+  Series,
+  Events,
+  Prayers,
+  Steps,
+  Connect,
+}
 
 const Navbar: FC = () => {
   let initialValue = 0;
@@ -26,16 +40,19 @@ const Navbar: FC = () => {
   const router = useRouter();
 
   if (router.pathname.startsWith('/series')) {
-    initialValue = 0;
+    initialValue = RouterState.Series;
   }
   if (router.pathname.startsWith('/events')) {
-    initialValue = 1;
+    initialValue = RouterState.Events;
+  }
+  if (router.pathname.startsWith('/prayers')) {
+    initialValue = RouterState.Prayers;
   }
   if (router.pathname.startsWith('/steps')) {
-    initialValue = 2;
+    initialValue = RouterState.Steps;
   }
   if (router.pathname.startsWith('/connect')) {
-    initialValue = 3;
+    initialValue = RouterState.Connect;
   }
 
   const [value, setValue] = useState(initialValue);
@@ -45,16 +62,19 @@ const Navbar: FC = () => {
       onChange={(event, newValue) => {
         setValue(newValue);
         switch (newValue) {
-          case 0:
+          case RouterState.Series:
             router.push('/series');
             break;
-          case 1:
+          case RouterState.Events:
             router.push('/events');
             break;
-          case 2:
+          case RouterState.Prayers:
+            router.push('/prayers');
+            break;
+          case RouterState.Steps:
             router.push('/steps');
             break;
-          case 3:
+          case RouterState.Connect:
             router.push('/connect');
             break;
         }
@@ -66,30 +86,37 @@ const Navbar: FC = () => {
       <BottomNavigationAction
         data-testid="sermons"
         href="/series"
-        classes={{ label: classes.label }}
+        classes={{ root: classes.root, label: classes.label }}
         label="Sermons"
-        icon={<BookIcon />}
+        icon={<SermonIcon />}
       />
       <BottomNavigationAction
         data-testid="events"
         href="/events"
-        classes={{ label: classes.label }}
+        classes={{ root: classes.root, label: classes.label }}
         label="Events"
-        icon={<CalendarIcon />}
+        icon={<EventsIcon />}
+      />
+      <BottomNavigationAction
+        data-testid="prayer"
+        href="/prayers"
+        classes={{ root: classes.root, label: classes.label }}
+        label="Prayer"
+        icon={<PrayerIcon />}
       />
       <BottomNavigationAction
         data-testid="steps"
         href="/steps"
-        classes={{ label: classes.label }}
+        classes={{ root: classes.root, label: classes.label }}
         label="Discover"
-        icon={<MapIcon />}
+        icon={<DiscoverIcon />}
       />
       <BottomNavigationAction
         data-testid="connect"
         href="/connect"
-        classes={{ label: classes.label }}
+        classes={{ root: classes.root, label: classes.label }}
         label="Connect"
-        icon={<SupervisedUserCircleIcon />}
+        icon={<ConnectIcon />}
       />
     </BottomNavigation>
   );

@@ -1,0 +1,11 @@
+query prayerQuery($ids: [ID!]) {
+  prayers(ids: $ids) {
+    nodes {
+      id
+      name
+      snippet
+      content
+      bannerUrl
+    }
+	}
+}
