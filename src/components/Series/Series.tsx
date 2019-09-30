@@ -1,4 +1,4 @@
-import { List, ListItem, makeStyles } from '@material-ui/core';
+import { List, ListItem, ListItemText, makeStyles } from '@material-ui/core';
 import { Skeleton } from '@material-ui/lab';
 import { get } from 'lodash/fp';
 import React, { FC, Fragment } from 'react';
@@ -33,13 +33,22 @@ const Series: FC<Props> = ({ loading, series }) => {
         <Skeleton className={classes.ratio16by9} variant="rect" />
         <List>
           <ListItem>
-            <Skeleton height={12} width="60%" />
+            <ListItemText
+              primary={<Skeleton height={12} width="60%" />}
+              secondary={<Skeleton height={6} width="50%" />}
+            />
           </ListItem>
           <ListItem>
-            <Skeleton height={12} width="60%" />
+            <ListItemText
+              primary={<Skeleton height={12} width="60%" />}
+              secondary={<Skeleton height={6} width="50%" />}
+            />
           </ListItem>
           <ListItem>
-            <Skeleton height={12} width="60%" />
+            <ListItemText
+              primary={<Skeleton height={12} width="60%" />}
+              secondary={<Skeleton height={6} width="50%" />}
+            />
           </ListItem>
         </List>
       </div>

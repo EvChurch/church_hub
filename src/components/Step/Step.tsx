@@ -8,14 +8,15 @@ import ElvantoForm from '../ElvantoForm';
 const useStyles = makeStyles(theme => ({
   image: {
     width: '100%',
-    marginBottom: theme.spacing(1),
   },
   ratio16by9: {
     paddingTop: '56.25%',
   },
   appBar: {
-    marginTop: -theme.spacing(2),
-    marginBottom: theme.spacing(2),
+    marginTop: -5,
+  },
+  container: {
+    marginTop: theme.spacing(2),
   },
 }));
 
@@ -36,7 +37,7 @@ const Step: FC<Props> = ({ loading, step }) => {
     return (
       <Fragment>
         <Skeleton className={classes.ratio16by9} variant="rect" />
-        <Container>
+        <Container className={classes.container}>
           <Skeleton width="60%" />
           <Skeleton height={12} width="40%" />
         </Container>
@@ -61,7 +62,7 @@ const Step: FC<Props> = ({ loading, step }) => {
             </Tabs>
           </AppBar>
         )}
-        <Container>
+        <Container className={classes.container}>
           <Typography gutterBottom variant="h5" component="h2">
             {step.name}
           </Typography>

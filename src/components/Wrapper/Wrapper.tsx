@@ -15,6 +15,7 @@ const useStyles = makeStyles(() =>
     content: {
       overflowY: 'scroll',
       '-webkit-overflow-scrolling': 'touch',
+      minHeight: 'calc(100vh - 200px)',
     },
   }),
 );
