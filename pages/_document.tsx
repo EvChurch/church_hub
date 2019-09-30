@@ -9,7 +9,11 @@ class MyDocument extends Document {
       <html lang="en">
         <Head>
           <meta charSet="utf-8" />
-          <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"
+            key="viewport"
+          />
           <meta name="theme-color" content={theme.palette.primary.main} />
           <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVrIUhXZuOSyhhAd7O4mXrHFfr565_Xvs&amp;libraries=places" />
           <script
