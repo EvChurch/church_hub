@@ -1,19 +1,19 @@
-import { Box, Container } from '@material-ui/core';
-import React, { FC } from 'react';
+import { NextPage } from 'next';
+import Router from 'next/router';
+import React, { Fragment } from 'react';
 
-const IndexPage: FC = () => (
-  <Container>
-    <Box my={2}>
-      {[...new Array(12)]
-        .map(
-          () => `Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
-        )
-        .join('\n')}
-    </Box>
-  </Container>
-);
+const IndexPage: NextPage = () => <Fragment></Fragment>;
+
+IndexPage.getInitialProps = ({ res }) => {
+  if (res) {
+    res.writeHead(302, {
+      Location: '/series',
+    });
+    res.end();
+  } else {
+    Router.push('/series');
+  }
+  return Promise.resolve({});
+};
 
 export default IndexPage;
