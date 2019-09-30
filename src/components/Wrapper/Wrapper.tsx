@@ -16,6 +16,7 @@ const useStyles = makeStyles(() =>
       overflowY: 'scroll',
       '-webkit-overflow-scrolling': 'touch',
       minHeight: 'calc(100vh - 200px)',
+      position: 'relative',
     },
   }),
 );
@@ -32,7 +33,9 @@ const Wrapper: FC<Props> = ({ children }: Props) => {
       <Appbar />
       <ScrollLock />
       <TouchScrollable>
-        <div className={classes.content}>{children}</div>
+        <div id="primaryContent" className={classes.content}>
+          {children}
+        </div>
       </TouchScrollable>
       <Player />
       <Navbar />
