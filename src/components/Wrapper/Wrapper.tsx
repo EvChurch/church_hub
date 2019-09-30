@@ -2,8 +2,8 @@ import { createStyles, makeStyles } from '@material-ui/core/styles';
 import React, { FC, ReactElement } from 'react';
 import Div100vh from 'react-div-100vh';
 import ScrollLock, { TouchScrollable } from 'react-scrolllock';
+import Appbar from '../../containers/Appbar';
 import Player from '../../containers/Player';
-import Appbar from '../Appbar';
 import Navbar from '../Navbar';
 
 const useStyles = makeStyles(() =>

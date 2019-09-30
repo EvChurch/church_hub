@@ -1,3 +1,4 @@
+import { useApolloClient } from '@apollo/react-hooks';
 import { Container, makeStyles, Typography } from '@material-ui/core';
 import { Skeleton } from '@material-ui/lab';
 import React, { FC, Fragment } from 'react';
@@ -17,7 +18,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 const Connect: FC = () => {
+  const client = useApolloClient();
   const classes = useStyles();
+  client.writeData({
+    data: { activeRoute: { __typename: 'Route', name: 'Connect', parentHref: null, parentAs: null } },
+  });
 
   return (
     <Fragment>
