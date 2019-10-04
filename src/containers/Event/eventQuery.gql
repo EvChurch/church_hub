@@ -1,0 +1,18 @@
+query eventQuery($ids: [ID!]) {
+  events(ids: $ids) {
+    nodes {
+      id
+      name
+      snippet
+      bannerUrl
+      startAt
+      endAt
+      address
+      content
+      location {
+        id
+        name
+      }
+    }
+	}
+}
