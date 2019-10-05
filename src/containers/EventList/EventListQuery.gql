@@ -1,0 +1,17 @@
+query eventListQuery {
+  events {
+    nodes {
+      id
+      name
+      snippet
+      bannerUrl
+      startAt
+      endAt
+      address
+      location {
+        id
+        name
+      }
+    }
+	}
+}
