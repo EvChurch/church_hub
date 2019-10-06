@@ -2,14 +2,11 @@ import { List, ListItem, ListItemText, makeStyles } from '@material-ui/core';
 import { Skeleton } from '@material-ui/lab';
 import { get } from 'lodash/fp';
 import React, { FC, Fragment } from 'react';
-import Img from 'react-image';
 import { seriesQuery_series_nodes as seriesQuerySeriesNodes } from '../../containers/Series/types/seriesQuery';
+import Image from '../Image';
 import SermonList from '../SermonList';
 
 const useStyles = makeStyles(theme => ({
-  image: {
-    width: '100%',
-  },
   title: {
     margin: theme.spacing(1),
   },
@@ -56,11 +53,7 @@ const Series: FC<Props> = ({ loading, series }) => {
   } else if (series) {
     return (
       <Fragment>
-        <Img
-          className={classes.image}
-          src={series.bannerUrl || undefined}
-          loader={<Skeleton className={classes.ratio16by9} variant="rect"></Skeleton>}
-        />
+        <Image src={series.bannerUrl || undefined} loader={<Skeleton variant="rect"></Skeleton>} />
         <SermonList items={sermons} seriesId={series.id}></SermonList>
       </Fragment>
     );

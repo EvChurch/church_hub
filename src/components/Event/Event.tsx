@@ -6,9 +6,9 @@ import {
 } from '@material-ui/icons';
 import { Skeleton } from '@material-ui/lab';
 import React, { FC, Fragment } from 'react';
-import Img from 'react-image';
 import Moment from 'react-moment';
 import { eventQuery_events_nodes as eventQueryEventsNodes } from '../../containers/Event/types/eventQuery';
+import Image from '../Image/Image';
 
 const useStyles = makeStyles(theme => ({
   image: {
@@ -17,6 +17,9 @@ const useStyles = makeStyles(theme => ({
   },
   ratio16by9: {
     paddingTop: '56.25%',
+  },
+  container: {
+    marginTop: theme.spacing(2),
   },
 }));
 
@@ -30,20 +33,18 @@ const Event: FC<Props> = ({ loading, event }) => {
 
   if (loading) {
     return (
-      <div>
+      <>
         <Skeleton className={classes.ratio16by9} variant="rect" />
-        <Skeleton width="60%" />
-        <Skeleton height={12} width="40%" />
-      </div>
+        <Container className={classes.container}>
+          <Skeleton width="60%" />
+          <Skeleton height={12} width="40%" />
+        </Container>
+      </>
     );
   } else if (event) {
     return (
       <Fragment>
-        <Img
-          className={classes.image}
-          src={event.bannerUrl || undefined}
-          loader={<Skeleton variant="rect"></Skeleton>}
-        />
+        <Image src={event.bannerUrl || undefined} loader={<Skeleton variant="rect"></Skeleton>} />
         <Container>
           <List>
             <ListItem>

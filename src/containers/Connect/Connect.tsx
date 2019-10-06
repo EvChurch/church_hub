@@ -2,16 +2,10 @@ import { useApolloClient } from '@apollo/react-hooks';
 import { Container, makeStyles, Typography } from '@material-ui/core';
 import { Skeleton } from '@material-ui/lab';
 import React, { FC, Fragment } from 'react';
-import Img from 'react-image';
 import ElvantoForm from '../../components/ElvantoForm';
+import Image from '../../components/Image';
 
 const useStyles = makeStyles(theme => ({
-  image: {
-    width: '100%',
-  },
-  ratio16by9: {
-    paddingTop: '56.25%',
-  },
   container: {
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2),
@@ -26,11 +20,7 @@ const Connect: FC = () => {
 
   return (
     <Fragment>
-      <Img
-        className={classes.image}
-        src="/static/images/connect.jpg"
-        loader={<Skeleton className={classes.ratio16by9} variant="rect" />}
-      />
+      <Image src="/static/images/connect.jpg" loader={<Skeleton variant="rect" />} />
       <Container className={classes.container}>
         <Typography variant="h5" component="h2">
           We want to connect with You!

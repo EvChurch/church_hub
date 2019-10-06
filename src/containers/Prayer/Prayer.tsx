@@ -19,7 +19,7 @@ const PrayerContainer: FC<Props> = ({ id }) => {
     data: {
       activeRoute: {
         __typename: 'Route',
-        name: get('prayers.nodes[0].name', data),
+        name: get('prayers.nodes[0].name', data) || '',
         parentHref: '/prayers',
         parentAs: '/prayers',
       },

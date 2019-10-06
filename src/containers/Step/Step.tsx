@@ -19,7 +19,7 @@ const StepContainer: FC<Props> = ({ id }) => {
     data: {
       activeRoute: {
         __typename: 'Route',
-        name: get('steps.nodes[0].name', data),
+        name: get('steps.nodes[0].name', data) || '',
         parentHref: '/steps',
         parentAs: '/steps',
       },

@@ -5,16 +5,12 @@ import HeadsetIcon from '@material-ui/icons/Headset';
 import { Skeleton } from '@material-ui/lab';
 import clsx from 'clsx';
 import React, { FC, Fragment } from 'react';
-import Img from 'react-image';
 import { sermonQuery_resources_nodes as sermonQueryResourcesNodes } from '../../containers/Sermon/types/sermonQuery';
+import Image from '../Image';
 
 const useStyles = makeStyles(theme => ({
   button: {
     marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
-  },
-  image: {
-    width: '100%',
     marginBottom: theme.spacing(1),
   },
   chip: {
@@ -29,6 +25,9 @@ const useStyles = makeStyles(theme => ({
   },
   ratio16by9: {
     paddingTop: '56.25%',
+  },
+  container: {
+    marginTop: theme.spacing(2),
   },
 }));
 
@@ -45,22 +44,17 @@ const Sermon: FC<Props> = ({ loading, sermon, onListenClick }) => {
     return (
       <div>
         <Skeleton className={classes.ratio16by9} variant="rect" />
-        <Skeleton width="60%" />
-        <Skeleton height={12} width="40%" />
+        <Container className={classes.container}>
+          <Skeleton width="60%" />
+          <Skeleton height={12} width="40%" />
+        </Container>
       </div>
     );
   } else if (sermon) {
     return (
       <Fragment>
-        <Img
-          className={classes.image}
-          src={sermon.bannerUrl || undefined}
-          loader={<Skeleton variant="rect"></Skeleton>}
-        />
-        <Container>
-          <Typography gutterBottom variant="h5" component="h2">
-            {sermon.name}
-          </Typography>
+        <Image src={sermon.bannerUrl || undefined} loader={<Skeleton variant="rect"></Skeleton>} />
+        <Container className={classes.container}>
           {sermon.authors.map(author => (
             <Chip key={author.id} size="small" icon={<FaceIcon />} label={author.name} className={classes.chip} />
           ))}

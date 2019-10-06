@@ -23,7 +23,7 @@ const SermonContainer: FC<Props> = ({ id }) => {
     data: {
       activeRoute: {
         __typename: 'Route',
-        name: get('resources.nodes[0].name', data),
+        name: get('resources.nodes[0].name', data) || '',
         parentHref: '/series/[seriesId]',
         parentAs: `/series/${router.query.seriesId}`,
       },

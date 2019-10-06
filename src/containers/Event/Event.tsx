@@ -19,7 +19,7 @@ const EventContainer: FC<Props> = ({ id }) => {
     data: {
       activeRoute: {
         __typename: 'Route',
-        name: get('events.nodes[0].name', data),
+        name: get('events.nodes[0].name', data) || '',
         parentHref: '/events',
         parentAs: '/events',
       },

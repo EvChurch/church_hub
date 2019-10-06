@@ -1,9 +1,9 @@
 import { Container, makeStyles, Typography } from '@material-ui/core';
 import { Skeleton } from '@material-ui/lab';
 import React, { FC, Fragment } from 'react';
-import Img from 'react-image';
 import { prayerQuery_prayers_nodes as prayerQueryPrayersNodes } from '../../containers/Prayer/types/prayerQuery';
 import EchoAd from '../EchoAd';
+import Image from '../Image';
 
 const useStyles = makeStyles(theme => ({
   image: {
@@ -12,6 +12,9 @@ const useStyles = makeStyles(theme => ({
   },
   ratio16by9: {
     paddingTop: '56.25%',
+  },
+  container: {
+    marginTop: theme.spacing(2),
   },
 }));
 
@@ -27,22 +30,17 @@ const Prayer: FC<Props> = ({ loading, prayer }) => {
     return (
       <div>
         <Skeleton className={classes.ratio16by9} variant="rect" />
-        <Skeleton width="60%" />
-        <Skeleton height={12} width="40%" />
+        <Container className={classes.container}>
+          <Skeleton width="60%" />
+          <Skeleton height={12} width="40%" />
+        </Container>
       </div>
     );
   } else if (prayer) {
     return (
       <Fragment>
-        <Img
-          className={classes.image}
-          src={prayer.bannerUrl || undefined}
-          loader={<Skeleton variant="rect"></Skeleton>}
-        />
-        <Container>
-          <Typography gutterBottom variant="h5" component="h2">
-            {prayer.name}
-          </Typography>
+        <Image src={prayer.bannerUrl || undefined} loader={<Skeleton variant="rect"></Skeleton>} />
+        <Container className={classes.container}>
           <Typography variant="body2" color="textSecondary" component="p">
             {prayer.snippet}
           </Typography>

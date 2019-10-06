@@ -19,7 +19,7 @@ const SeriesContainer: FC<Props> = ({ id }) => {
     data: {
       activeRoute: {
         __typename: 'Route',
-        name: get('series.nodes[0].name', data),
+        name: get('series.nodes[0].name', data) || '',
         parentHref: '/series',
         parentAs: '/series',
       },
