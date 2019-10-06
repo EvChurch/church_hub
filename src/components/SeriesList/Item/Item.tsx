@@ -37,7 +37,12 @@ const Item: FC<Props> = ({ loading, series }) => {
       <Link href="/series/[seriesId]" as={`/series/${series.id}`} passHref>
         <Card className={classes.card}>
           <CardActionArea>
-            <LazyLoad placeholder={<Skeleton className={classes.ratio16by9} variant="rect" />} overflow once>
+            <LazyLoad
+              placeholder={<Skeleton className={classes.ratio16by9} variant="rect" />}
+              offset={1000}
+              overflow
+              once
+            >
               <CardMedia className={classes.ratio16by9} image={series.bannerUrl || undefined} />
             </LazyLoad>
           </CardActionArea>
