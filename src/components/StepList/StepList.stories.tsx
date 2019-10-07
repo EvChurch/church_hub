@@ -6,6 +6,7 @@ const step = {
   id: uuid(),
   name: 'The Real Thing',
   bannerUrl: null,
+  snippet: '',
 };
 
 storiesOf('StepList', module)
@@ -19,5 +20,11 @@ storiesOf('StepList', module)
     'loading',
     (): ReactElement => {
       return <StepList loading={true} />;
+    },
+  )
+  .add(
+    'connect',
+    (): ReactElement => {
+      return <StepList loading={false} postForm={true} />;
     },
   );

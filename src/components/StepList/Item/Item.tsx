@@ -1,4 +1,4 @@
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core';
+import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { Skeleton } from '@material-ui/lab';
 import Link from 'next/link';
@@ -50,11 +50,6 @@ const Item: FC<Props> = ({ loading, step }) => {
               </Typography>
             </CardContent>
           </CardActionArea>
-          <CardActions>
-            <Button size="small" color="primary">
-              More Info
-            </Button>
-          </CardActions>
         </Card>
       </Link>
     );
