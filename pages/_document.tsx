@@ -15,13 +15,6 @@ class MyDocument extends Document {
             key="viewport"
           />
           <meta name="theme-color" content={theme.palette.primary.main} />
-          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVrIUhXZuOSyhhAd7O4mXrHFfr565_Xvs&amp;libraries=places" />
-          <script
-            async
-            defer
-            crossOrigin="anonymous"
-            src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v4.0&appId=524321138374879&autoLogAppEvents=1"
-          />
           <link rel="manifest" href="/static/manifest.json" />
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-capable" content="yes" />

@@ -1,11 +1,12 @@
-import { Button, Chip, Container, makeStyles, Typography } from '@material-ui/core';
+import { AppBar, Button, Chip, Container, makeStyles, Tab, Tabs, Typography } from '@material-ui/core';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import FaceIcon from '@material-ui/icons/Face';
 import HeadsetIcon from '@material-ui/icons/Headset';
 import { Skeleton } from '@material-ui/lab';
 import clsx from 'clsx';
-import React, { FC, Fragment } from 'react';
+import React, { ChangeEvent, FC } from 'react';
 import { sermonQuery_resources_nodes as sermonQueryResourcesNodes } from '../../containers/Sermon/types/sermonQuery';
+import Editor from '../Editor';
 import Image from '../Image';
 
 const useStyles = makeStyles(theme => ({
@@ -28,6 +29,7 @@ const useStyles = makeStyles(theme => ({
   },
   container: {
     marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2),
   },
 }));
 
@@ -37,8 +39,19 @@ interface Props {
   onListenClick?: (sermon: sermonQueryResourcesNodes) => void;
 }
 
+enum TabState {
+  Details = 0,
+  SermonNotes,
+  ConnectGroupNotes,
+}
+
 const Sermon: FC<Props> = ({ loading, sermon, onListenClick }) => {
   const classes = useStyles();
+  const [tab, setTab] = React.useState(TabState.Details);
+
+  const handleChange = (_event: ChangeEvent<{}>, newTab: number): void => {
+    setTab(newTab);
+  };
 
   if (loading) {
     return (
@@ -52,49 +65,80 @@ const Sermon: FC<Props> = ({ loading, sermon, onListenClick }) => {
     );
   } else if (sermon) {
     return (
-      <Fragment>
+      <>
         <Image src={sermon.bannerUrl || undefined} />
+        <AppBar position="sticky">
+          <Tabs value={tab} onChange={handleChange}>
+            <Tab label="Details" />
+            <Tab label="Sermon Notes" />
+            <Tab label="CG Notes" />
+          </Tabs>
+        </AppBar>
         <Container className={classes.container}>
-          {sermon.authors.map(author => (
-            <Chip key={author.id} size="small" icon={<FaceIcon />} label={author.name} className={classes.chip} />
-          ))}
-          {sermon.connectionScriptures.map(connectionScripture => (
-            <Chip
-              key={connectionScripture.id}
-              size="small"
-              icon={<BookmarkIcon />}
-              label={`${connectionScripture.scripture.name} ${connectionScripture.range}`}
-              className={classes.chip}
-            />
-          ))}
-          {sermon.topics.map(topic => (
-            <Chip key={topic.id} size="small" label={topic.name} className={classes.chip} />
-          ))}
-          <Button
-            size="large"
-            variant="contained"
-            color="primary"
-            className={classes.button}
-            fullWidth={true}
-            onClick={() => onListenClick && onListenClick(sermon)}
-          >
-            <HeadsetIcon className={clsx(classes.leftIcon, classes.iconSmall)} />
-            Listen
-          </Button>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {sermon.snippet}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {sermon.content}
-          </Typography>
-          {sermon.connectionScriptures.map(connectionScripture => (
-            <div key={connectionScripture.id} dangerouslySetInnerHTML={{ __html: connectionScripture.content }}></div>
-          ))}
+          {(() => {
+            switch (tab) {
+              case TabState.Details:
+                return (
+                  <>
+                    {sermon.authors.map(author => (
+                      <Chip
+                        key={author.id}
+                        size="small"
+                        icon={<FaceIcon />}
+                        label={author.name}
+                        className={classes.chip}
+                      />
+                    ))}
+                    {sermon.connectionScriptures.map(connectionScripture => (
+                      <Chip
+                        key={connectionScripture.id}
+                        size="small"
+                        icon={<BookmarkIcon />}
+                        label={`${connectionScripture.scripture.name} ${connectionScripture.range}`}
+                        className={classes.chip}
+                      />
+                    ))}
+                    {sermon.topics.map(topic => (
+                      <Chip key={topic.id} size="small" label={topic.name} className={classes.chip} />
+                    ))}
+                    <Button
+                      size="large"
+                      variant="contained"
+                      color="primary"
+                      className={classes.button}
+                      fullWidth={true}
+                      onClick={() => onListenClick && onListenClick(sermon)}
+                    >
+                      <HeadsetIcon className={clsx(classes.leftIcon, classes.iconSmall)} />
+                      Listen
+                    </Button>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                      {sermon.snippet}
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                      {sermon.content}
+                    </Typography>
+                    {sermon.connectionScriptures.map(connectionScripture => (
+                      <div
+                        key={connectionScripture.id}
+                        dangerouslySetInnerHTML={{ __html: connectionScripture.content }}
+                      ></div>
+                    ))}
+                  </>
+                );
+              case TabState.SermonNotes:
+                return <Editor id={`${sermon.id}-sermon-notes`} content={sermon.sermonNotes || ''}></Editor>;
+              case TabState.ConnectGroupNotes:
+                return (
+                  <Editor id={`${sermon.id}-connect-group-notes`} content={sermon.connectGroupNotes || ''}></Editor>
+                );
+            }
+          })()}
         </Container>
-      </Fragment>
+      </>
     );
   } else {
-    return <Fragment></Fragment>;
+    return <></>;
   }
 };
 

@@ -16,8 +16,8 @@ export interface eventListQuery_events_nodes {
   name: string;
   snippet: string;
   bannerUrl: string;
-  startAt: string;
-  endAt: string;
+  startAt: any;
+  endAt: any;
   address: string;
   location: eventListQuery_events_nodes_location;
 }

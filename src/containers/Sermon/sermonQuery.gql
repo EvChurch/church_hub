@@ -8,6 +8,8 @@ query sermonQuery($ids: [ID!]) {
       audioUrl
       youtubeUrl
       bannerUrl
+      sermonNotes
+      connectGroupNotes
       authors {
         id
         name

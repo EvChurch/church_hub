@@ -36,6 +36,8 @@ export interface sermonQuery_resources_nodes {
   audioUrl: string | null;
   youtubeUrl: string | null;
   bannerUrl: string | null;
+  sermonNotes: string | null;
+  connectGroupNotes: string | null;
   authors: sermonQuery_resources_nodes_authors[];
   topics: sermonQuery_resources_nodes_topics[];
   connectionScriptures: sermonQuery_resources_nodes_connectionScriptures[];
