@@ -1,5 +1,6 @@
-const withOffline = require('next-offline');
+const withCSS = require('@zeit/next-css');
 const withGraphQL = require('next-plugin-graphql');
+const withOffline = require('next-offline');
 const withSass = require('@zeit/next-sass');
 const compose = require('lodash/fp/compose');
 
@@ -41,7 +42,7 @@ const nextConfig = {
   },
 };
 
-module.exports = compose([withGraphQL, withOffline, withSass])({
+module.exports = compose([withCSS, withGraphQL, withOffline, withSass])({
   webpack(config) {
     removeMinimizeOptionFromCssLoaders({ ...config, ...nextConfig });
     return config;

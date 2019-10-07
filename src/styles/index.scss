@@ -104,3 +104,14 @@ button.elvanto-submit {
   width: 100%;
   font-size: 16px;
 }
+#trix-editor-top-level {
+  trix-toolbar {
+    .trix-button-group--file-tools {
+      display: none;
+    }
+  }
+  trix-editor {
+    font-size: 16px;
+    border: 0;
+  }
+}

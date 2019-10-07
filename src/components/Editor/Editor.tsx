@@ -1,43 +1,28 @@
-import {
-  ContentState,
-  convertFromHTML,
-  convertFromRaw,
-  convertToRaw,
-  Editor as DraftEditor,
-  EditorState,
-} from 'draft-js';
+import dynamic from 'next/dynamic';
 import React, { FC, useState } from 'react';
+import { TrixEditor } from 'react-trix';
 
 interface Props {
   id: string;
   content: string;
 }
 
-const getEditorState = (id: string, content: string): EditorState => {
-  const storeRaw = localStorage.getItem(id);
-
-  if (storeRaw) {
-    const rawContentFromStore = convertFromRaw(JSON.parse(storeRaw));
-    return EditorState.createWithContent(rawContentFromStore);
-  } else if (content === '') {
-    return EditorState.createEmpty();
-  } else {
-    const blocksFromHTML = convertFromHTML(content);
-    const contentState = ContentState.createFromBlockArray(blocksFromHTML.contentBlocks, blocksFromHTML.entityMap);
-    return EditorState.createWithContent(contentState);
-  }
+const getState = (id: string, content: string): string => {
+  return localStorage.getItem(id) || content;
 };
 
 const Editor: FC<Props> = ({ id, content }) => {
-  const [editorState, setEditorState] = useState(getEditorState(id, content));
+  require('trix');
+  require('trix/dist/trix.css');
 
-  const onChange = (editorState: EditorState): void => {
-    const contentRaw = convertToRaw(editorState.getCurrentContent());
-    localStorage.setItem(id, JSON.stringify(contentRaw));
-    setEditorState(editorState);
+  const [state, setState] = useState(getState(id, content));
+
+  const onChange = (state): void => {
+    localStorage.setItem(id, state);
+    setState(state);
   };
 
-  return <DraftEditor editorState={editorState} onChange={onChange} />;
+  return <TrixEditor value={state} onChange={onChange} mergeTags={[]} />;
 };
 
-export default Editor;
+export default dynamic(() => Promise.resolve(Editor), { ssr: false });

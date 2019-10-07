@@ -38,6 +38,7 @@
     "@material-ui/icons": "^4.2.1",
     "@material-ui/lab": "^4.0.0-alpha.25",
     "@material-ui/styles": "^4.3.0",
+    "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "apollo-boost": "0.4.4",
     "clsx": "^1.0.4",
@@ -61,7 +62,9 @@
     "react-player": "^1.13.0",
     "react-scrolllock": "^4.0.1",
     "react-test-renderer": "^16.9.0",
+    "react-trix": "^0.4.1",
     "react-use": "^12.2.0",
+    "trix": "^1.2.0",
     "uuid": "^3.3.3",
     "yup": "^0.27.0"
   },
