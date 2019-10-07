@@ -1,6 +1,5 @@
 import { useApolloClient } from '@apollo/react-hooks';
 import { Container, makeStyles, Typography } from '@material-ui/core';
-import { Skeleton } from '@material-ui/lab';
 import React, { FC, Fragment } from 'react';
 import ElvantoForm from '../../components/ElvantoForm';
 import Image from '../../components/Image';
@@ -20,7 +19,7 @@ const Connect: FC = () => {
 
   return (
     <Fragment>
-      <Image src="/static/images/connect.jpg" loader={<Skeleton variant="rect" />} />
+      <Image src="/static/images/connect.jpg" />
       <Container className={classes.container}>
         <Typography variant="h5" component="h2">
           We want to connect with You!

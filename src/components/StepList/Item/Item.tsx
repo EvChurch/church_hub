@@ -1,4 +1,4 @@
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@material-ui/core';
+import { Card, CardActionArea, CardContent, CardMedia } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { Skeleton } from '@material-ui/lab';
 import Link from 'next/link';
@@ -41,14 +41,6 @@ const Item: FC<Props> = ({ loading, step }) => {
         <Card className={classes.card}>
           <CardActionArea>
             <CardMedia className={classes.ratio16by9} image={step.bannerUrl || undefined} />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                {step.name}
-              </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
-                {step.snippet}
-              </Typography>
-            </CardContent>
           </CardActionArea>
         </Card>
       </Link>

@@ -53,7 +53,7 @@ const Series: FC<Props> = ({ loading, series }) => {
   } else if (series) {
     return (
       <Fragment>
-        <Image src={series.bannerUrl || undefined} loader={<Skeleton variant="rect"></Skeleton>} />
+        <Image src={series.bannerUrl || undefined} />
         <SermonList items={sermons} seriesId={series.id}></SermonList>
       </Fragment>
     );

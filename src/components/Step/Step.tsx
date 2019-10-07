@@ -44,7 +44,7 @@ const Step: FC<Props> = ({ loading, step }) => {
     const connectionStep = step.locationConnectionSteps.nodes && step.locationConnectionSteps.nodes[tab];
     return (
       <Fragment>
-        <Image src={step.bannerUrl || undefined} loader={<Skeleton variant="rect"></Skeleton>} />
+        <Image src={step.bannerUrl || undefined} />
         {step.locationConnectionSteps.nodes && step.locationConnectionSteps.nodes.length > 1 && (
           <AppBar position="static" className={classes.appBar}>
             <Tabs value={tab} onChange={handleChange}>

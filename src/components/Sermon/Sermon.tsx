@@ -53,7 +53,7 @@ const Sermon: FC<Props> = ({ loading, sermon, onListenClick }) => {
   } else if (sermon) {
     return (
       <Fragment>
-        <Image src={sermon.bannerUrl || undefined} loader={<Skeleton variant="rect"></Skeleton>} />
+        <Image src={sermon.bannerUrl || undefined} />
         <Container className={classes.container}>
           {sermon.authors.map(author => (
             <Chip key={author.id} size="small" icon={<FaceIcon />} label={author.name} className={classes.chip} />

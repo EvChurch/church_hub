@@ -44,7 +44,7 @@ const Event: FC<Props> = ({ loading, event }) => {
   } else if (event) {
     return (
       <Fragment>
-        <Image src={event.bannerUrl || undefined} loader={<Skeleton variant="rect"></Skeleton>} />
+        <Image src={event.bannerUrl || undefined} />
         <Container>
           <List>
             <ListItem>

@@ -39,7 +39,7 @@ const Prayer: FC<Props> = ({ loading, prayer }) => {
   } else if (prayer) {
     return (
       <Fragment>
-        <Image src={prayer.bannerUrl || undefined} loader={<Skeleton variant="rect"></Skeleton>} />
+        <Image src={prayer.bannerUrl || undefined} />
         <Container className={classes.container}>
           <Typography variant="body2" color="textSecondary" component="p">
             {prayer.snippet}
