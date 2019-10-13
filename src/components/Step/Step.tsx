@@ -9,9 +9,6 @@ const useStyles = makeStyles(theme => ({
   ratio16by9: {
     paddingTop: '56.25%',
   },
-  appBar: {
-    marginTop: -5,
-  },
   container: {
     marginTop: theme.spacing(2),
   },
@@ -46,7 +43,7 @@ const Step: FC<Props> = ({ loading, step }) => {
       <Fragment>
         <Image src={step.bannerUrl || undefined} />
         {step.locationConnectionSteps.nodes && step.locationConnectionSteps.nodes.length > 1 && (
-          <AppBar position="static" className={classes.appBar}>
+          <AppBar position="sticky">
             <Tabs value={tab} onChange={handleChange}>
               {step.locationConnectionSteps.nodes &&
                 step.locationConnectionSteps.nodes.map(connectionStep => {

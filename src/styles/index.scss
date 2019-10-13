@@ -103,11 +103,15 @@ button.elvanto-submit {
 }
 .item.radio,
 .item.checkbox {
+  margin-bottom: 10px;
+  &:last-child {
+    margin-bottom: 0;
+  }
   label {
     display: grid;
     grid-template-columns: 30px auto;
     align-items: center;
-    height: 30px;
+    min-height: 30px;
     padding: 0;
     input[type="checkbox"],
     input[type="radio"] {
