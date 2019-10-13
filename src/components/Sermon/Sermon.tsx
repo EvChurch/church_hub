@@ -79,7 +79,7 @@ const Sermon: FC<Props> = ({ loading, sermon, onListenClick }) => {
             switch (tab) {
               case TabState.Details:
                 return (
-                  <>
+                  <div key={TabState.Details}>
                     {sermon.authors.map(author => (
                       <Chip
                         key={author.id}
@@ -124,13 +124,19 @@ const Sermon: FC<Props> = ({ loading, sermon, onListenClick }) => {
                         dangerouslySetInnerHTML={{ __html: connectionScripture.content }}
                       ></div>
                     ))}
-                  </>
+                  </div>
                 );
               case TabState.SermonNotes:
-                return <Editor id={`${sermon.id}-sermon-notes`} content={sermon.sermonNotes || ''}></Editor>;
+                return (
+                  <div key={TabState.SermonNotes}>
+                    <Editor id={`${sermon.id}-sermon-notes`} content={sermon.sermonNotes || ''}></Editor>
+                  </div>
+                );
               case TabState.ConnectGroupNotes:
                 return (
-                  <Editor id={`${sermon.id}-connect-group-notes`} content={sermon.connectGroupNotes || ''}></Editor>
+                  <div key={TabState.ConnectGroupNotes}>
+                    <Editor id={`${sermon.id}-connect-group-notes`} content={sermon.connectGroupNotes || ''}></Editor>
+                  </div>
                 );
             }
           })()}
