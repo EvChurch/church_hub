@@ -28,7 +28,6 @@ export interface stepQuery_steps_nodes_locationConnectionSteps {
 export interface stepQuery_steps_nodes {
   id: string;
   name: string;
-  snippet: string;
   content: string | null;
   bannerUrl: string;
   locationConnectionSteps: stepQuery_steps_nodes_locationConnectionSteps;

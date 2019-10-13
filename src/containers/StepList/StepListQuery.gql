@@ -3,7 +3,6 @@ query stepListQuery {
     nodes {
       id
       name
-      snippet
       bannerUrl
     }
 	}

@@ -3,7 +3,6 @@ query stepQuery($ids: [ID!]) {
     nodes {
       id
       name
-      snippet
       content
       bannerUrl
       locationConnectionSteps {

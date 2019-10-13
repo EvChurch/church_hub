@@ -53,9 +53,6 @@ const Step: FC<Props> = ({ loading, step }) => {
           </AppBar>
         )}
         <Container className={classes.container}>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {step.snippet}
-          </Typography>
           <Typography variant="body2" color="textSecondary" component="div">
             {step.content && <div dangerouslySetInnerHTML={{ __html: step.content }} />}
           </Typography>

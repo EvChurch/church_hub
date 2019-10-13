@@ -3,7 +3,6 @@ query eventQuery($ids: [ID!]) {
     nodes {
       id
       name
-      snippet
       bannerUrl
       startAt
       endAt

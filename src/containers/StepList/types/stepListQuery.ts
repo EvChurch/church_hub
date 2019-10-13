@@ -9,7 +9,6 @@
 export interface stepListQuery_steps_nodes {
   id: string;
   name: string;
-  snippet: string;
   bannerUrl: string;
 }
 
