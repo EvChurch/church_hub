@@ -1,3 +1,5 @@
+$color-primary: #AF222A;
+
 .passage-content {
   margin: 20px -15px 0;
   padding: 50px 100px;
@@ -75,22 +77,6 @@ input[type='text'].elvanto-form-control, input[type='email'].elvanto-form-contro
   padding: .75rem;
   border: 1px solid #ced4da;
   border-radius: .25rem;
-  .item {
-    margin-bottom: .75rem;
-    &:last-child {
-      margin-bottom: 0;
-    }
-    label {
-      display: flex;
-      align-items: center;
-      padding: 0;
-      font-size: 16px;
-      input {
-        position: static;
-        margin: 0 10px 0 0;
-      }
-    }
-  }
 }
 label.elvanto-form-label {
   font-size: 16px;
@@ -99,7 +85,7 @@ button.elvanto-submit {
   text-transform: uppercase;
   font-weight: bold;
   color: #fff;
-  background-color: #AF222A;
+  background-color: $color-primary;
   display: block;
   width: 100%;
   font-size: 16px;
@@ -113,5 +99,68 @@ button.elvanto-submit {
   trix-editor {
     font-size: 16px;
     border: 0;
+  }
+}
+.item.radio,
+.item.checkbox {
+  label {
+    display: grid;
+    grid-template-columns: 30px auto;
+    align-items: center;
+    height: 30px;
+    padding: 0;
+    input[type="checkbox"],
+    input[type="radio"] {
+      height: 20px;
+      width: 20px;
+      margin: 0;
+      position: relative;
+      top: auto;
+      left: auto;
+      &:after {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        display: flex;
+        content: ' ';
+        height: 10px;
+        width: 10px;
+        background: $color-primary;
+        transform: scale(0);
+        transition: transform .2s ease;
+      }
+      &:checked:after {
+        transform: scale(1);
+      }
+    }
+  }
+}
+.item.radio input[type="radio"] {
+  &:before, &:after {
+    pointer-events: none;
+    border-radius: 50%;
+  }
+  &:before {
+    display: flex;
+    content: ' ';
+    height: 20px;
+    width: 20px;
+    border: solid 3px #000;
+    background: #fff;
+    margin-right: 10px;
+  }
+}
+.item.checkbox input[type="checkbox"] {
+  &:before, &:after {
+    pointer-events: none;
+  }
+  &:before {
+    display: flex;
+    content: ' ';
+    height: 20px;
+    width: 20px;
+    border: solid 3px #000;
+    background: #fff;
+    margin-right: 10px;
   }
 }
