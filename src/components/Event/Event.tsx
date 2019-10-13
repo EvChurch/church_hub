@@ -78,7 +78,6 @@ const Event: FC<Props> = ({ loading, event }) => {
                 <SnippetIcon />
               </ListItemIcon>
               <ListItemText>
-                <Typography component="p">{event.snippet}</Typography>
                 {event.content && <div dangerouslySetInnerHTML={{ __html: event.content }} />}
               </ListItemText>
             </ListItem>
