@@ -2,7 +2,6 @@ import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
 import {
   CalendarToday as EventsIcon,
   Map as DiscoverIcon,
-  Security as PrayerIcon,
   SupervisedUserCircle as ConnectIcon,
   Whatshot as SermonIcon,
 } from '@material-ui/icons';
@@ -29,7 +28,6 @@ const useStyles = makeStyles(() =>
 enum RouterState {
   Series,
   Events,
-  Prayers,
   Steps,
   Connect,
 }
@@ -44,9 +42,6 @@ const Navbar: FC = () => {
   }
   if (router.pathname.startsWith('/events')) {
     initialValue = RouterState.Events;
-  }
-  if (router.pathname.startsWith('/prayers')) {
-    initialValue = RouterState.Prayers;
   }
   if (router.pathname.startsWith('/steps')) {
     initialValue = RouterState.Steps;
@@ -67,9 +62,6 @@ const Navbar: FC = () => {
             break;
           case RouterState.Events:
             router.push('/events');
-            break;
-          case RouterState.Prayers:
-            router.push('/prayers');
             break;
           case RouterState.Steps:
             router.push('/steps');
@@ -96,13 +88,6 @@ const Navbar: FC = () => {
         classes={{ root: classes.root, label: classes.label }}
         label="Events"
         icon={<EventsIcon />}
-      />
-      <BottomNavigationAction
-        data-testid="prayer"
-        href="/prayers"
-        classes={{ root: classes.root, label: classes.label }}
-        label="Prayer"
-        icon={<PrayerIcon />}
       />
       <BottomNavigationAction
         data-testid="steps"

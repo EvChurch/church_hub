@@ -1,4 +1,4 @@
-import { Card, CardContent, CardMedia, Container, Typography } from '@material-ui/core';
+import { Card, CardActionArea, CardContent, CardMedia, Container, Typography } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { ThumbUp as ThumbUpIcon } from '@material-ui/icons';
 import React, { FC, Fragment, useState } from 'react';
@@ -7,11 +7,6 @@ import Item from './Item';
 
 const useStyles = makeStyles(theme =>
   createStyles({
-    postForm: {
-      marginTop: theme.spacing(2),
-      marginBottom: theme.spacing(2),
-      position: 'relative',
-    },
     ratio16by9: {
       paddingTop: '56.25%',
     },
@@ -32,6 +27,10 @@ const useStyles = makeStyles(theme =>
       color: 'white',
       textAlign: 'center',
     },
+    card: {
+      marginTop: theme.spacing(2),
+      marginBottom: theme.spacing(2),
+    },
   }),
 );
 
@@ -48,7 +47,7 @@ const StepList: FC<Props> = ({ postForm, loading, items }) => {
   return (
     <Container>
       {postForm && (
-        <Card className={classes.postForm}>
+        <Card className={classes.card}>
           <CardMedia className={classes.ratio16by9} image={`/static/images/church/${count}.jpg`} />
           <div className={classes.overlay} />
           <CardContent className={classes.cardContent}>
@@ -74,6 +73,13 @@ const StepList: FC<Props> = ({ postForm, loading, items }) => {
                 <Item step={step} />
               </Fragment>
             ))}
+          <a href="https://echoprayerfeeds.com/auckland-evangelical-church" target="_blank" rel="noopener noreferrer">
+            <Card className={classes.card}>
+              <CardActionArea>
+                <CardMedia className={classes.ratio16by9} image="/static/images/echo.jpg" />
+              </CardActionArea>
+            </Card>
+          </a>
         </Fragment>
       )}
     </Container>
