@@ -55,9 +55,6 @@ const Item: FC<Props> = ({ loading, event }) => {
             <CardMedia className={classes.ratio16by9} image={event.bannerUrl || undefined} />
             <div className={classes.overlay} />
             <CardContent className={classes.cardContent}>
-              <Typography variant="h5" component="h2">
-                {event.name}
-              </Typography>
               <Typography variant="body2" component="p">
                 <Moment format="LLLL">{event.startAt}</Moment>
               </Typography>
