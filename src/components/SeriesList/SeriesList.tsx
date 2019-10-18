@@ -10,7 +10,11 @@ interface Props {
 const SeriesList: FC<Props> = ({ loading, items }) => (
   <Container>
     {loading ? (
-      <Item loading={true}></Item>
+      <>
+        <Item loading={true}></Item>
+        <Item loading={true}></Item>
+        <Item loading={true}></Item>
+      </>
     ) : (
       <Fragment>
         {items &&

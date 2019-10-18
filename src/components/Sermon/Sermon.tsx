@@ -71,7 +71,7 @@ const Sermon: FC<Props> = ({ loading, sermon, onListenClick }) => {
           <Tabs value={tab} onChange={handleChange}>
             <Tab label="Details" />
             <Tab label="Sermon Notes" />
-            <Tab label="CG Notes" />
+            {/* <Tab label="CG Notes" /> */}
           </Tabs>
         </AppBar>
         <Container className={classes.container}>

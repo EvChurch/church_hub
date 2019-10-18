@@ -11,7 +11,11 @@ interface Props {
 const EventList: FC<Props> = ({ loading, items }) => (
   <Container>
     {loading ? (
-      <Item loading={true}></Item>
+      <>
+        <Item loading={true} />
+        <Item loading={true} />
+        <Item loading={true} />
+      </>
     ) : (
       <Fragment>
         {items &&

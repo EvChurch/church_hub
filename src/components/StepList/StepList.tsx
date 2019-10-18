@@ -28,6 +28,7 @@ const useStyles = makeStyles(theme =>
       textAlign: 'center',
     },
     card: {
+      position: 'relative',
       marginTop: theme.spacing(2),
       marginBottom: theme.spacing(2),
     },
@@ -64,7 +65,11 @@ const StepList: FC<Props> = ({ postForm, loading, items }) => {
         </Card>
       )}
       {loading ? (
-        <Item loading={true}></Item>
+        <>
+          <Item loading={true}></Item>
+          <Item loading={true}></Item>
+          <Item loading={true}></Item>
+        </>
       ) : (
         <Fragment>
           {items &&
