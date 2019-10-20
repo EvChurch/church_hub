@@ -58,9 +58,7 @@ const StepList: FC<Props> = ({ postForm, loading, items }) => {
             <Typography gutterBottom variant="h5" component="h2">
               Thanks for filling that out!
             </Typography>
-            <Typography variant="body2" component="p">
-              Check out some useful next steps below.
-            </Typography>
+            <Typography component="p">Check out some useful next steps below.</Typography>
           </CardContent>
         </Card>
       )}

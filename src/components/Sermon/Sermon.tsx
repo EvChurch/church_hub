@@ -112,12 +112,8 @@ const Sermon: FC<Props> = ({ loading, sermon, onListenClick }) => {
                       <HeadsetIcon className={clsx(classes.leftIcon, classes.iconSmall)} />
                       Listen
                     </Button>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                      {sermon.snippet}
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                      {sermon.content}
-                    </Typography>
+                    <Typography component="p">{sermon.snippet}</Typography>
+                    <Typography component="p">{sermon.content}</Typography>
                     {sermon.connectionScriptures.map(connectionScripture => (
                       <div
                         key={connectionScripture.id}

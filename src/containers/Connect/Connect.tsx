@@ -24,7 +24,7 @@ const Connect: FC = () => {
         <Typography variant="h5" component="h2">
           We want to connect with You!
         </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography color="textSecondary" component="p">
           Help us to stay connected and keep you informed.
         </Typography>
       </Container>

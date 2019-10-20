@@ -4,6 +4,7 @@ import React, { ChangeEvent, FC, Fragment } from 'react';
 import { stepQuery_steps_nodes as stepQueryStepsNodes } from '../../containers/Step/types/stepQuery';
 import ElvantoForm from '../ElvantoForm';
 import Image from '../Image';
+import MailChimpForm from '../MailChimpForm';
 
 const useStyles = makeStyles(theme => ({
   ratio16by9: {
@@ -53,11 +54,20 @@ const Step: FC<Props> = ({ loading, step }) => {
           </AppBar>
         )}
         <Container className={classes.container}>
-          <Typography variant="body2" color="textSecondary" component="div">
+          <Typography component="div">
             {step.content && <div dangerouslySetInnerHTML={{ __html: step.content }} />}
           </Typography>
         </Container>
-        {connectionStep && <ElvantoForm id={connectionStep.elvantoFormId} content={connectionStep.content} />}
+        {connectionStep && connectionStep.elvantoFormId && (
+          <ElvantoForm id={connectionStep.elvantoFormId} content={connectionStep.content} />
+        )}
+        {connectionStep && connectionStep.mailChimpUserId && connectionStep.mailChimpAudienceId && (
+          <MailChimpForm
+            userId={connectionStep.mailChimpUserId}
+            audienceId={connectionStep.mailChimpAudienceId}
+            content={connectionStep.content}
+          />
+        )}
       </Fragment>
     );
   } else {

@@ -9,6 +9,8 @@ query stepQuery($ids: [ID!]) {
         nodes {
           id
           elvantoFormId
+          mailChimpUserId
+          mailChimpAudienceId
           content
           location {
             id

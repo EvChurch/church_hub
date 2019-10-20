@@ -13,7 +13,9 @@ export interface stepQuery_steps_nodes_locationConnectionSteps_nodes_location {
 
 export interface stepQuery_steps_nodes_locationConnectionSteps_nodes {
   id: string;
-  elvantoFormId: string;
+  elvantoFormId: string | null;
+  mailChimpUserId: string | null;
+  mailChimpAudienceId: string | null;
   content: string | null;
   location: stepQuery_steps_nodes_locationConnectionSteps_nodes_location;
 }

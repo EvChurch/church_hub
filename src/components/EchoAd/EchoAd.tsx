@@ -40,14 +40,12 @@ const EchoAd: FC = () => {
         <Typography gutterBottom variant="h5" component="h2">
           Join Us on The Echo App
         </Typography>
-        <Typography variant="body2" color="textSecondary" component="p" gutterBottom={true}>
+        <Typography component="p" gutterBottom={true}>
           We believe that prayer is a powerful and effective way for us to connect with God. Echo Prayer is a free app
           that helps you keep track of your prayers, reminds you to pray throughout the day, and lets you share prayer
           requests with others.
         </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          Download the app and add Auckland Evangelical Church as a feed.
-        </Typography>
+        <Typography component="p">Download the app and add Auckland Evangelical Church as a feed.</Typography>
       </CardContent>
       <CardActions>
         <Button href="https://echoprayer.com/" target="_blank" rel="noopener" color="primary">
