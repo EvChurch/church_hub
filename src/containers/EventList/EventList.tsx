@@ -22,7 +22,7 @@ const EventListContainer: FC<{ featured?: boolean }> = ({ featured }) => {
     return <EventList loading={loading}></EventList>;
   } else {
     const items = get('events.nodes', data);
-    return <EventList items={items}></EventList>;
+    return <EventList items={items} featured={featured}></EventList>;
   }
 };
 
