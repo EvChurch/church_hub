@@ -22,3 +22,7 @@ export interface stepListQuery_steps {
 export interface stepListQuery {
   steps: stepListQuery_steps;
 }
+
+export interface stepListQueryVariables {
+  featured?: boolean | null;
+}

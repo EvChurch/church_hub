@@ -1,6 +1,6 @@
 import { useApolloClient } from '@apollo/react-hooks';
 import { Container, makeStyles, Typography } from '@material-ui/core';
-import React, { FC, Fragment } from 'react';
+import React, { FC, Fragment, useEffect } from 'react';
 import ElvantoForm from '../../components/ElvantoForm';
 import Image from '../../components/Image';
 
@@ -13,9 +13,14 @@ const useStyles = makeStyles(theme => ({
 const Connect: FC = () => {
   const client = useApolloClient();
   const classes = useStyles();
-  client.writeData({
-    data: { activeRoute: { __typename: 'Route', name: 'Connect', parentHref: null, parentAs: null } },
-  });
+
+  useEffect(
+    () =>
+      client.writeData({
+        data: { activeRoute: { __typename: 'Route', name: 'Connect', parentHref: null, parentAs: null } },
+      }),
+    [],
+  );
 
   return (
     <Fragment>

@@ -1,6 +1,7 @@
 import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
 import {
   CalendarToday as EventsIcon,
+  Home as IndexIcon,
   Map as DiscoverIcon,
   SupervisedUserCircle as ConnectIcon,
   Whatshot as SermonIcon,
@@ -26,6 +27,7 @@ const useStyles = makeStyles(() =>
 );
 
 enum RouterState {
+  Index,
   Series,
   Events,
   Steps,
@@ -36,6 +38,10 @@ const Navbar: FC = () => {
   let initialValue = 0;
   const classes = useStyles();
   const router = useRouter();
+
+  if (router.pathname === '/') {
+    initialValue = RouterState.Index;
+  }
 
   if (router.pathname.startsWith('/series')) {
     initialValue = RouterState.Series;
@@ -57,6 +63,9 @@ const Navbar: FC = () => {
       onChange={(event, newValue) => {
         setValue(newValue);
         switch (newValue) {
+          case RouterState.Index:
+            router.push('/');
+            break;
           case RouterState.Series:
             router.push('/series');
             break;
@@ -75,6 +84,13 @@ const Navbar: FC = () => {
       showLabels
       className={classes.navigation}
     >
+      <BottomNavigationAction
+        data-testid="home"
+        href="/"
+        classes={{ root: classes.root, label: classes.label }}
+        label="Home"
+        icon={<IndexIcon />}
+      />
       <BottomNavigationAction
         data-testid="sermons"
         href="/series"

@@ -1,24 +1,27 @@
 import { useApolloClient, useQuery } from '@apollo/react-hooks';
 import { get } from 'lodash/fp';
-import { useRouter } from 'next/router';
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import StepList from '../../components/StepList';
 import StepListQuery from './StepListQuery.gql';
 import { stepListQuery } from './types/stepListQuery';
 
-const StepListContainer: FC = () => {
-  const router = useRouter();
+const StepListContainer: FC<{ featured?: boolean }> = ({ featured }) => {
   const client = useApolloClient();
-  const { loading, data } = useQuery<stepListQuery>(StepListQuery);
-  const postForm = get('query.postForm', router) === '';
-  client.writeData({
-    data: { activeRoute: { __typename: 'Route', name: 'Discover', parentHref: null, parentAs: null } },
+  const { loading, data } = useQuery<stepListQuery>(StepListQuery, {
+    variables: { featured: featured },
   });
+  useEffect(
+    () =>
+      client.writeData({
+        data: { activeRoute: { __typename: 'Route', name: 'Discover', parentHref: null, parentAs: null } },
+      }),
+    [],
+  );
   if (loading) {
-    return <StepList loading={loading} postForm={postForm}></StepList>;
+    return <StepList featured={featured} loading={loading}></StepList>;
   } else {
     const items = get('steps.nodes', data);
-    return <StepList items={items} postForm={postForm}></StepList>;
+    return <StepList featured={featured} items={items}></StepList>;
   }
 };
 

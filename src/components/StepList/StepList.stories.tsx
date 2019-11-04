@@ -21,10 +21,4 @@ storiesOf('StepList', module)
     (): ReactElement => {
       return <StepList loading={true} />;
     },
-  )
-  .add(
-    'connect',
-    (): ReactElement => {
-      return <StepList loading={false} postForm={true} />;
-    },
   );

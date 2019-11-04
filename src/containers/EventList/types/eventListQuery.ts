@@ -31,3 +31,7 @@ export interface eventListQuery_events {
 export interface eventListQuery {
   events: eventListQuery_events;
 }
+
+export interface eventListQueryVariables {
+  featured?: boolean | null;
+}

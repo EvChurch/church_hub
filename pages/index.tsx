@@ -1,19 +1,15 @@
 import { NextPage } from 'next';
-import Router from 'next/router';
-import React, { Fragment } from 'react';
+import Head from 'next/head';
+import React from 'react';
+import Home from '../src/containers/Home';
 
-const IndexPage: NextPage = () => <Fragment></Fragment>;
-
-IndexPage.getInitialProps = ({ res }) => {
-  if (res) {
-    res.writeHead(302, {
-      Location: '/series',
-    });
-    res.end();
-  } else {
-    Router.push('/series');
-  }
-  return Promise.resolve({});
-};
+const IndexPage: NextPage = () => (
+  <>
+    <Head>
+      <title>Home | Auckland Ev</title>
+    </Head>
+    <Home></Home>
+  </>
+);
 
 export default IndexPage;

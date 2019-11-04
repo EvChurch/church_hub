@@ -1,5 +1,5 @@
-query eventListQuery {
-  events {
+query eventListQuery($featured: Boolean) {
+  events(featured: $featured) {
     nodes {
       id
       name

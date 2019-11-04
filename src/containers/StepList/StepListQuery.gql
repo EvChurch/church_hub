@@ -1,5 +1,5 @@
-query stepListQuery {
-  steps {
+query stepListQuery($featured: Boolean) {
+  steps(featured: $featured) {
     nodes {
       id
       name
