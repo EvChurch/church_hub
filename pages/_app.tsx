@@ -10,7 +10,7 @@ import '../src/styles/index.scss';
 import theme from '../src/util/theme';
 
 const tagManagerArgs = {
-  id: 'GTM-K2W6V68',
+  gtmId: 'GTM-K2W6V68',
 };
 
 class MyApp extends App {
