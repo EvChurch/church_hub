@@ -3,10 +3,15 @@ import { ThemeProvider } from '@material-ui/styles';
 import App from 'next/app';
 import Head from 'next/head';
 import React, { Fragment, ReactElement } from 'react';
+import TagManager from 'react-gtm-module';
 import Wrapper from '../src/components/Wrapper';
 import withApollo from '../src/lib/apollo';
 import '../src/styles/index.scss';
 import theme from '../src/util/theme';
+
+const tagManagerArgs = {
+  id: 'GTM-K2W6V68',
+};
 
 class MyApp extends App {
   public componentDidMount(): void {
@@ -15,6 +20,7 @@ class MyApp extends App {
     if (jssStyles && jssStyles.parentNode) {
       jssStyles.parentNode.removeChild(jssStyles);
     }
+    TagManager.initialize(tagManagerArgs);
   }
 
   public render(): ReactElement {
