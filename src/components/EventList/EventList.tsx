@@ -10,6 +10,11 @@ const useStyles = makeStyles(theme =>
       marginTop: theme.spacing(2),
       marginBottom: theme.spacing(2),
     },
+    empty: {
+      textAlign: 'center',
+      marginTop: theme.spacing(5),
+      marginBottom: theme.spacing(5),
+    },
   }),
 );
 
@@ -36,6 +41,9 @@ const EventList: FC<Props> = ({ loading, items, featured }) => {
             <Typography className={classes.title} variant="h6" component="h2">
               Upcoming Events
             </Typography>
+          )}
+          {!featured && items && items.length === 0 && (
+            <Typography className={classes.empty}>No upcoming events.</Typography>
           )}
           {items &&
             items.map(event => (
