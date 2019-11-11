@@ -18,8 +18,6 @@ const removeMinimizeOptionFromCssLoaders = config => {
 
 const nextConfig = {
   target: 'serverless',
-  transformManifest: manifest => ['/'].concat(manifest),
-  generateInDevMode: true,
   workboxOpts: {
     swDest: 'static/service-worker.js',
     runtimeCaching: [
@@ -31,7 +29,7 @@ const nextConfig = {
           networkTimeoutSeconds: 15,
           expiration: {
             maxEntries: 150,
-            maxAgeSeconds: 30 * 24 * 60 * 60, // 1 month
+            maxAgeSeconds: 30 * 24 * 60 * 60,
           },
           cacheableResponse: {
             statuses: [0, 200],
