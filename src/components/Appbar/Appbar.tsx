@@ -35,7 +35,7 @@ const Appbar: FC<Props> = ({ data }): ReactElement => {
     <AppBar className={classes.appbar} position="static" color="default">
       <Toolbar className={classes.toolbar}>
         {parentHref === null ? (
-          <img className={classes.logo} src="/static/images/icon.png" />
+          <img className={classes.logo} src="/static/images/logo@192.png" />
         ) : (
           <Link href={parentHref} as={parentAs} passHref>
             <IconButton className={classes.button}>

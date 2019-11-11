@@ -19,7 +19,7 @@ class MyDocument extends Document {
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-          <link rel="apple-touch-icon" href="/static/images/icon.png" />
+          <link rel="apple-touch-icon" href="/static/images/logo.png" />
           <link
             href="/static/images/splashscreens/iphone5_splash.png"
             media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
