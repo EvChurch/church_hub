@@ -70,6 +70,7 @@ class MyDocument extends Document {
             media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
             rel="apple-touch-startup-image"
           />
+          <link href="https://www.googletagmanager.com" rel="preconnect" crossOrigin="anonymous" />
         </Head>
         <body>
           <div id="fb-root" />
