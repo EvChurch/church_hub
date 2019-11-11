@@ -2,7 +2,7 @@ const withCSS = require('@zeit/next-css');
 const withGraphQL = require('next-plugin-graphql');
 const withOffline = require('next-offline');
 const withSass = require('@zeit/next-sass');
-const compose = require('lodash/fp/compose');
+const compose = (...ops) => ops.reduce((a, b) => arg => b(a(arg)));
 
 const removeMinimizeOptionFromCssLoaders = config => {
   config.module.rules.forEach(rule => {
@@ -38,11 +38,10 @@ const nextConfig = {
       },
     ],
   },
-};
-
-module.exports = compose([withCSS, withGraphQL, withOffline, withSass])({
-  webpack(config) {
+  webpack: config => {
     removeMinimizeOptionFromCssLoaders({ ...config, ...nextConfig });
     return config;
   },
-});
+};
+
+module.exports = compose(withCSS, withGraphQL, withOffline, withSass)(nextConfig);
