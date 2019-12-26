@@ -63,8 +63,10 @@ const SermonCard: FC<Props> = ({ loading, sermon }) => {
                 <Moment format="LL">{sermon.publishedAt}</Moment>
               </Typography>
               <Typography variant="body2" component="p">
-                {sermon.authors[0].name} &#183; {sermon.connectionScriptures[0].scripture.name}{' '}
-                {sermon.connectionScriptures[0].range}
+                {sermon.authors[0].name}
+                {sermon.connectionScriptures[0] && '&#183'}
+                {sermon.connectionScriptures[0] && sermon.connectionScriptures[0].scripture.name}
+                {sermon.connectionScriptures[0] && sermon.connectionScriptures[0].range}
               </Typography>
             </CardContent>
           </CardActionArea>

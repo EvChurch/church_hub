@@ -14,10 +14,10 @@
   ],
   "editor.formatOnSave": true,
   "[javascript]": {
-    "editor.formatOnSave": false,
+    "editor.formatOnSave": false
   },
   "[javascriptreact]": {
-    "editor.formatOnSave": false,
+    "editor.formatOnSave": false
   },
   "[typescript]": {
     "editor.formatOnSave": false,
@@ -31,4 +31,7 @@
       "source.organizeImports": true
     }
   },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
