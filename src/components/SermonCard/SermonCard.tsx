@@ -64,9 +64,12 @@ const SermonCard: FC<Props> = ({ loading, sermon }) => {
               </Typography>
               <Typography variant="body2" component="p">
                 {sermon.authors[0].name}
-                {sermon.connectionScriptures[0] && '&#183'}
-                {sermon.connectionScriptures[0] && sermon.connectionScriptures[0].scripture.name}
-                {sermon.connectionScriptures[0] && sermon.connectionScriptures[0].range}
+                {sermon.connectionScriptures[0] && (
+                  <span>
+                    &nbsp;&#183;&nbsp;
+                    {sermon.connectionScriptures[0].scripture.name} {sermon.connectionScriptures[0].range}
+                  </span>
+                )}
               </Typography>
             </CardContent>
           </CardActionArea>
