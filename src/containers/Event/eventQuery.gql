@@ -8,10 +8,11 @@ query eventQuery($ids: [ID!]) {
       endAt
       address
       content
+      registrationUrl
       location {
         id
         name
       }
     }
-	}
+  }
 }

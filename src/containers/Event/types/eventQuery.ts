@@ -19,6 +19,7 @@ export interface eventQuery_events_nodes {
   endAt: any;
   address: string;
   content: string;
+  registrationUrl: string | null;
   location: eventQuery_events_nodes_location;
 }
 

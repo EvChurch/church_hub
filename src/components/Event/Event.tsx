@@ -1,4 +1,14 @@
-import { Container, List, ListItem, ListItemIcon, ListItemText, makeStyles, Typography } from '@material-ui/core';
+import {
+  Box,
+  Button,
+  Container,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  makeStyles,
+  Typography,
+} from '@material-ui/core';
 import {
   AccessTime as StartAtIcon,
   LocationOnOutlined as AddressIcon,
@@ -82,6 +92,21 @@ const Event: FC<Props> = ({ loading, event }) => {
               </ListItemText>
             </ListItem>
           </List>
+          {event.registrationUrl && (
+            <Box m={3}>
+              <Button
+                href={event.registrationUrl}
+                variant="contained"
+                target="_blank"
+                rel="noopener"
+                color="primary"
+                size="large"
+                fullWidth={true}
+              >
+                Register Now
+              </Button>
+            </Box>
+          )}
         </Container>
       </Fragment>
     );
