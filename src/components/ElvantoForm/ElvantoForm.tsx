@@ -31,7 +31,7 @@ interface Props {
 const ElvantoForm: FC<Props> = ({ id, content }) => {
   const classes = useStyles();
   const uniqId = uuid();
-  loadElvantoFormScript(uniqId, id);
+  setTimeout(() => loadElvantoFormScript(uniqId, id), 50);
 
   return (
     <Container className={classes.form}>
