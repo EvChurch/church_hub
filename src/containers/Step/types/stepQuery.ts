@@ -1,5 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
+// @generated
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -17,6 +18,7 @@ export interface stepQuery_steps_nodes_locationConnectionSteps_nodes {
   mailChimpUserId: string | null;
   mailChimpAudienceId: string | null;
   content: string | null;
+  fluroFormUrl: string | null;
   location: stepQuery_steps_nodes_locationConnectionSteps_nodes_location;
 }
 

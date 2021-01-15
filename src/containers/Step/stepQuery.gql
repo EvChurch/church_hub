@@ -12,6 +12,7 @@ query stepQuery($ids: [ID!]) {
           mailChimpUserId
           mailChimpAudienceId
           content
+          fluroFormUrl
           location {
             id
             name
@@ -19,5 +20,5 @@ query stepQuery($ids: [ID!]) {
         }
       }
     }
-	}
+  }
 }

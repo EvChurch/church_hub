@@ -1,4 +1,4 @@
-import { AppBar, Container, makeStyles, Tab, Tabs, Typography } from '@material-ui/core';
+import { AppBar, Box, Button, Container, makeStyles, Tab, Tabs, Typography } from '@material-ui/core';
 import { Skeleton } from '@material-ui/lab';
 import React, { ChangeEvent, FC, Fragment } from 'react';
 import { stepQuery_steps_nodes as stepQueryStepsNodes } from '../../containers/Step/types/stepQuery';
@@ -57,6 +57,19 @@ const Step: FC<Props> = ({ loading, step }) => {
           <Typography component="div">
             {step.content && <div dangerouslySetInnerHTML={{ __html: step.content }} />}
           </Typography>
+          {connectionStep && connectionStep.fluroFormUrl && (
+            <Box mt={2}>
+              <Button
+                href={connectionStep.fluroFormUrl}
+                target="_blank"
+                rel="noopener"
+                color="primary"
+                variant="contained"
+              >
+                Open Form
+              </Button>
+            </Box>
+          )}
         </Container>
         {connectionStep && connectionStep.elvantoFormId && (
           <ElvantoForm id={connectionStep.elvantoFormId} content={connectionStep.content} />
