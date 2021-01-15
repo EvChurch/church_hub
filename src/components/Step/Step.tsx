@@ -58,7 +58,7 @@ const Step: FC<Props> = ({ loading, step }) => {
             {step.content && <div dangerouslySetInnerHTML={{ __html: step.content }} />}
           </Typography>
           {connectionStep && connectionStep.fluroFormUrl && (
-            <Box mt={2}>
+            <Box my={2}>
               <Button
                 href={connectionStep.fluroFormUrl}
                 target="_blank"
